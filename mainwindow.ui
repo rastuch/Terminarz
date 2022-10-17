@@ -11,32 +11,69 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>TERMINARZ</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="pushButton">
-    <property name="geometry">
-     <rect>
-      <x>370</x>
-      <y>10</y>
-      <width>80</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Show db</string>
-    </property>
-   </widget>
-   <widget class="QTextEdit" name="textEdit">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>10</y>
-      <width>341</width>
-      <height>541</height>
-     </rect>
-    </property>
-   </widget>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="currentIndex">
+       <number>1</number>
+      </property>
+      <widget class="QWidget" name="tab">
+       <attribute name="title">
+        <string>Dashboard</string>
+       </attribute>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QTextEdit" name="textEdit"/>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButton">
+          <property name="text">
+           <string>Show db</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_2">
+       <attribute name="title">
+        <string>Kalendarz</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string>Wybierz miesiąc oraz rok</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QDateEdit" name="dateEdit">
+          <property name="displayFormat">
+           <string>MM.yyyy</string>
+          </property>
+          <property name="timeSpec">
+           <enum>Qt::LocalTime</enum>
+          </property>
+          <property name="date">
+           <date>
+            <year>2022</year>
+            <month>12</month>
+            <day>31</day>
+           </date>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QListWidget" name="listWidget"/>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

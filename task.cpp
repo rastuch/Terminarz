@@ -1,5 +1,6 @@
 #include "task.h"
 #include <QString>
+#include <QList>
 Task::Task(){}
 Task::Task(int id, QString title, QString description, QString date, QString time, QString type)
 {
@@ -13,3 +14,4 @@ void Task::setTask(int id, QString title, QString description, QString date, QSt
     time = time;
     type = type;
 }
+

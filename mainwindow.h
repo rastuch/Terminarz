@@ -23,6 +23,10 @@ private slots:
 
     void on_textEdit_textChanged();
 
+    void on_tabWidget_tabBarClicked(int index);
+
+    void on_dateEdit_dateChanged(const QDate &date);
+
 private:
     Ui::MainWindow *ui;
 };
