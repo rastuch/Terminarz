@@ -50,7 +50,10 @@ void MainWindow::on_pushButton_clicked() // Event okreslajacy co ma sie stac gdy
     QString response = ""; //obiekt textEdit przymuje tylko jeden QString wiec sobie go deklarujemy
 
     foreach(Task currentTask, taskList){ //iteracja po liscie, taka petla
-        response += "Nazwa: " + currentTask.getTitle() +"\nOpis: "+ currentTask.getDescription() + "\nData: " + currentTask.getTime() + " " + currentTask.getDate() +"\n\n";
+        response += "Nazwa: " + currentTask.getTitle() +"\nOpis: "+
+                currentTask.getDescription() + "\nData: "
+                + currentTask.getTime() + " " + currentTask.getDate() + "  -date " + currentTask.getQDate().toString("dd.MM.yyyy") + "\n\n";
+
         //element ktory teraz jest przetwazany to currentTask, dopisujemy do response kazdy z naszych elementow juz ladnie opisany
     }
     ui->textEdit->setText(response); // wyswietlenie response na elemencie textEdit
