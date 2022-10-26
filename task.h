@@ -1,7 +1,7 @@
 #ifndef TASK_H
 #define TASK_H
 
-
+#include <QDate>
 #include <QString>
 class Task
 {
@@ -29,6 +29,10 @@ public:
     void setDate(QString date) { this->date = date; }
     void setTime(QString time) { this->time = time; }
     void setType(QString type) { this->type = type; }
+    QDate getQDate(){
+        QDate Date = QDate::fromString(date,"yyyy-MM-dd");
+        return Date;
+    }
 };
 
 #endif // TASK_H
