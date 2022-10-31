@@ -4,6 +4,7 @@
 #include <QList>
 #include <task.h>
 #include <QDebug>
+#include <QSqlError>
 
 // Serwisy beda odpowiedzialne za dostarczanie danych z bazy, to tutaj mapujemy dane (tzn. przypisujemy wartosci z bazy do obiektu danej klasy)
 // Przestrzen nazw jest tu uzywana zamiast klasy poniewaz sa tu tylko metody statyczne wiec nie mamy potrzeby tworzenia nowej instancji obiektu
@@ -30,6 +31,13 @@ QList<Task> getAllTasks(QSqlDatabase db){ //Funkcja ktora wyciaga wszystkie zada
     }else{
         //Blad polaczenia cos tam sie nie udalo
         qDebug( "getAllTasks can not get DB connection" );
+        qWarning() << db.lastError();
+    }
+    if (q.lastError().isValid()){
+         qWarning() << q.lastError();
+    }else{
+        qDebug() << q.lastQuery();
+        qDebug("getAllTasks sucessfull");
     }
     q.clear(); // wyczszczenie zapytania
     db.close(); // kazde polaczenie z baza powinno byc na koniec zamkniete!
@@ -41,8 +49,8 @@ QList<Task> getAllTasksByDate(QSqlDatabase db,QDate date){
     db.open();
     QSqlQuery q;
     QList<Task> taskList;
-    QString queryText = "SELECT * FROM TASK WHERE date like '" +date.toString("yyyy-MM-dd")+"'";
-    q.exec(queryText);
+    QString query = "SELECT * FROM TASK WHERE date like '" +date.toString("yyyy-MM-dd")+"'";
+    q.exec(query);
       if(db.isOpen()){
           while(q.next()){
               Task newTask;
@@ -56,9 +64,74 @@ QList<Task> getAllTasksByDate(QSqlDatabase db,QDate date){
           }
       }else{
               qDebug( "getAllTasksByDate can not get DB connection" );
+              qWarning() << db.lastError();
           }
+      if (q.lastError().isValid()){
+           qDebug() << query;
+           qWarning() << q.lastError();
+      }else{
+          qDebug() << q.lastQuery();
+          qDebug("getAllTasksByDate sucessfull");
+      }
       q.clear();
       db.close();
       return taskList;
+}
+
+void addTask(QSqlDatabase db,Task newTask){
+    db.open();
+    QSqlQuery q;
+    QString query = QString("INSERT INTO TASK (title, description, date, time, type) VALUES ('%1','%2','%3','%4','%5')").arg(
+                newTask.getTitle(),newTask.getDescription(),newTask.getDate(),newTask.getTime(),newTask.getType());
+    q.exec(query);
+    if (q.lastError().isValid()){
+         qDebug() << query;
+         qWarning() << q.lastError();
+    }else{
+        qDebug() << q.lastQuery();
+        qDebug("addTask sucessfull");
+    }
+    q.clear();
+    db.close();
+}
+
+void deleteTaskById(QSqlDatabase db,int taskId){
+    db.open();
+    QSqlQuery q;
+    QString query = QString("DELETE FROM TASK WHERE id = %1").arg(taskId);
+    q.exec(query);
+    if (q.lastError().isValid()){
+         qDebug() << query;
+         qWarning() << q.lastError();
+    }else{
+        qDebug() << q.lastQuery();
+        qDebug("deleteTaskById sucessfull");
+    }
+    q.clear();
+    db.close();
+}
+
+void updateTask(QSqlDatabase db,Task updatedTask){
+    db.open();
+    QSqlQuery q;
+    QString query = QString("UPDATE TASK SET title = '%1', description = '%2', date = '%3', time = '%4', type = '%5' WHERE id=%6").arg(
+                updatedTask.getTitle(),
+                updatedTask.getDescription(),
+                updatedTask.getDate(),
+                updatedTask.getTime(),
+                updatedTask.getType(),
+                QString::number(updatedTask.getId())
+                );
+
+    q.exec(query);
+    if (q.lastError().isValid()){
+         qDebug() << query;
+         qWarning() << q.lastError();
+    }else{
+        qDebug() << q.lastQuery();
+        qDebug("updateTask sucessfull");
+    }
+    q.clear();
+    db.close();
 }
 }
