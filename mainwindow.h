@@ -27,6 +27,11 @@ private slots:
 
     void on_dateEdit_dateChanged(const QDate &date);
 
+
+    void on_calendarWidget_clicked(const QDate &date);
+
+    void on_calendarWidget_selectionChanged();
+
 private:
     Ui::MainWindow *ui;
 };
