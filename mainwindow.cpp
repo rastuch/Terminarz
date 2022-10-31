@@ -60,6 +60,17 @@ void MainWindow::on_calendarWidget_selectionChanged() //Wywolanie funkcji po kli
     ui->textEdit_2->setText(response); // wyswietlenie response na elemencie textEdit
 }
 
+void MainWindow::on_dateEdit_dateChanged(const QDate &date){
 
+};
+
+
+void MainWindow::on_textEdit_textChanged(){
+
+};
+
+void MainWindow::on_calendarWidget_clicked(const QDate &date){
+
+};
 
 
