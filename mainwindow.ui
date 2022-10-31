@@ -13,10 +13,19 @@
   <property name="windowTitle">
    <string>TERMINARZ</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">alternate-background-color: rgb(25, 30, 35);</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
      <widget class="QTabWidget" name="tabWidget">
+      <property name="styleSheet">
+       <string notr="true">border-color: rgb(25, 30, 35);</string>
+      </property>
       <property name="currentIndex">
        <number>1</number>
       </property>
@@ -28,46 +37,173 @@
         <item>
          <widget class="QTextEdit" name="textEdit"/>
         </item>
-        <item>
-         <widget class="QPushButton" name="pushButton">
-          <property name="text">
-           <string>Show db</string>
-          </property>
-         </widget>
-        </item>
        </layout>
       </widget>
       <widget class="QWidget" name="tab_2">
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
        <attribute name="title">
         <string>Kalendarz</string>
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_2">
         <item>
-         <widget class="QLabel" name="label">
+         <widget class="QCalendarWidget" name="calendarWidget">
+          <property name="styleSheet">
+           <string notr="true">QCalendarWidget QWidget {
+	alternate-background-color: #364250;
+}
+#qt_calendar_navigationbar {			/*Pasek wyboru */ 
+    background-color: #F3AD33;
+	border-bottom: 0px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+#qt_calendar_prevmonth,
+#qt_calendar_nextmonth {			/*Przyciski zmiany miesiąca*/ 
+    border: none; 			/*Usuwa obramowanie */
+	qproperty-icon: none;			    /*Usuwa standardowe strzałki*/
+    min-width: 13px;
+    max-width: 13px;
+    min-height: 13px;
+    max-height: 13px;
+    border-radius: 5px; 
+    background-color: transparent; 
+	padding: 5px;
+}
+
+#qt_calendar_prevmonth {			/*Poprzedni miesiąc*/
+	margin-left:5px;
+	image: url(:/icon/arrow-119-48.ico);			/*Ustawienie nowej ikonki zmiany miesiąca na poprzedni*/
+}
+#qt_calendar_nextmonth{			/*Następny miesiąc*/
+	margin-right: 5px;
+	image: url(:/icon/arrow-19-48.ico);
+}
+#qt_calendar_prevmonth:hover,
+#qt_calendar_nextmonth:hover{			/*Kiedy najedziemy na przyciski*/
+	background-color: #364250;
+}
+#qt_calendar_prevmonth:pressed,
+#qt_calendar_nextmonth:pressed{			/*Kiedy wciśniemy przycisk*/
+	color: #F3AD33;
+	background-color: #191E23;
+}
+#qt_calendar_yearbutton{			/*Przycisk zmiany roku*/
+	color: #000000;
+	margin: 5px;
+	border-radius: 5px;
+	font-size: 13px;
+	font-weight: bold;
+	padding: 0 10px;
+}
+#qt_calendar_monthbutton{			/*Przycisk zmiany miesiąca*/
+	color: #000000;
+	width: 110px;
+	font-size: 13px;
+	margin: 5px 0;
+	border-radius: 5px;
+	padding: 0 2px;
+}
+#qt_calendar_yearbutton:hover,
+#qt_calendar_monthbutton:hover{			/*Kiedy najedziemy myszką na przyciski*/
+	background-color: #364250;
+}
+#qt_calendar_yearbutton:pressed,
+#qt_calendar_monthbutton:pressed{			/*Kiedy najedziemy myszką na przyciski*/
+	background-color: #191E23;
+}
+#qt_calendar_yearedit{			/*Zmiana roku*/
+	min-width: 53px;
+	color: #000000;
+	background: transparent;
+	font-size: 13px;
+}
+#qt_calendar_yearedit::up-button {			/*Dodanie ikonki zwiększania roku*/
+	image: url(:/icon/arrow-151-48.ico);
+    subcontrol-position: right;
+}
+
+#qt_calendar_yearedit::down-button {				/*Dodanie ikonki zmniejszania roku*/
+	image: url(:/icon/arrow-213-48.ico);
+    subcontrol-position: left; 
+}
+
+#qt_calendar_yearedit::down-button, 
+#qt_calendar_yearedit::up-button {
+	width:10px;
+	padding: 0px 5px;
+	border-radius:3px;
+}
+
+#qt_calendar_yearedit::down-button:hover, 
+#qt_calendar_yearedit::up-button:hover {			/*Gdy najedziemy na ikony*/
+	background-color: #364250;
+}
+#qt_calendar_yearedit::down-button:pressed, 
+#qt_calendar_yearedit::up-button:pressed {			/*Gdy klikniemy na ikony*/
+	background-color: #191E23;
+}
+#calendarWidget QToolButton QMenu {			/*Zmiana miesiąca*/
+    background-color: #364250;
+	color: #FFFFFF;
+	font-weight: bold;
+
+}
+#calendarWidget QToolButton QMenu::item{			/*Miesiące w panelu wyboru*/
+	font-weight: bold;
+	font-size: 13px;
+}
+ #calendarWidget QToolButton QMenu::item:selected:enabled {			/*Wybranie danego miesiąca*/
+    background-color: #F3AD33;
+	border-radius: 5px;
+}
+
+#calendarWidget QToolButton::menu-indicator {
+     image: none;			/*Usunięcie strzałki przy wyborze miesiąca*/
+	margin-top: 10px;
+	width:20px;
+}
+#qt_calendar_calendarview {			/*Główna część kalendarza*/
+	color: #FFFFFF;
+	font-weight: bold;
+	background-color: #191E23;
+    outline: 0px;
+	border-top: 0px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius:5px;
+}
+
+#qt_calendar_calendarview::item:hover {			/*Najechanie myszą na konkretny dzień kalendarza*/
+   border-radius: 10px;
+	background-color: #F7C670;
+}
+
+#qt_calendar_calendarview::item:selected {			/*Kliknięcie myszą na konkretny dzień kalendarza*/
+    background-color: #F3AD33; 
+	border-radius:10px;
+}</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButton">
+          <property name="styleSheet">
+           <string notr="true">background-color: #F3AD33;</string>
+          </property>
           <property name="text">
-           <string>Wybierz miesiąc oraz rok</string>
+           <string>Dodaj</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QDateEdit" name="dateEdit">
-          <property name="displayFormat">
-           <string>MM.yyyy</string>
-          </property>
-          <property name="timeSpec">
-           <enum>Qt::LocalTime</enum>
-          </property>
-          <property name="date">
-           <date>
-            <year>2022</year>
-            <month>12</month>
-            <day>31</day>
-           </date>
+         <widget class="QTextEdit" name="textEdit_2">
+          <property name="styleSheet">
+           <string notr="true">background-color: #191E23;
+color: #FFFFFF</string>
           </property>
          </widget>
-        </item>
-        <item>
-         <widget class="QListWidget" name="listWidget"/>
         </item>
        </layout>
       </widget>
@@ -75,17 +211,6 @@
     </item>
    </layout>
   </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>503</width>
-     <height>21</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
  <connections/>

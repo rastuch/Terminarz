@@ -25,7 +25,8 @@ set(PROJECT_SOURCES
         task.h
         TaskService.cpp
         TaskService.h
-)
+        resources.qrc
+    )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(Terminarz
