@@ -7,14 +7,27 @@
 #include <TaskService.h>
 #include <QDate>
 #include <iostream>
+#include <dashboardtask.h>
 using namespace std;
+
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
     db = QSqlDatabase::addDatabase("QSQLITE"); //Deklaracja jakiej bazy bedziemy uzywac w aplikacji
     db.setDatabaseName("calendar.sqlite"); //Ustawienie nazwy pliku z baza danych (baza danych powinna byc folderze budowania aplikacji a nie w plikach zrodlowych!)
+    QList<Task> taskList = TaskService::getAllTasks(db);
+    foreach(Task currentTask, taskList){
+      auto taskToList = new DashboardTask(this,&currentTask);
+      auto item = new QListWidgetItem();
+      item->setSizeHint(taskToList->sizeHint());
+      ui->dashboardTaskList->addItem(item);
+      ui->dashboardTaskList->setItemWidget(item,taskToList);
+    }
+
 }
 
 MainWindow::~MainWindow()

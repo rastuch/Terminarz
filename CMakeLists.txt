@@ -26,6 +26,9 @@ set(PROJECT_SOURCES
         TaskService.cpp
         TaskService.h
         resources.qrc
+        dashboardtask.cpp
+        dashboardtask.h
+        dashboardtask.ui
     )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
