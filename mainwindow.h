@@ -31,6 +31,8 @@ private slots:
 
     void on_calendarWidget_selectionChanged();
 
+   void showTime();
+
 private:
     Ui::MainWindow *ui;
 };

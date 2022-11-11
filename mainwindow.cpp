@@ -6,10 +6,10 @@
 #include <QCalendarWidget>
 #include <TaskService.h>
 #include <QDate>
+#include <QTimer>
 #include <iostream>
 #include <dashboardtask.h>
 using namespace std;
-
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -19,7 +19,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     db = QSqlDatabase::addDatabase("QSQLITE"); //Deklaracja jakiej bazy bedziemy uzywac w aplikacji
     db.setDatabaseName("calendar.sqlite"); //Ustawienie nazwy pliku z baza danych (baza danych powinna byc folderze budowania aplikacji a nie w plikach zrodlowych!)
-    QList<Task> taskList = TaskService::getAllTasks(db);
+    QList<Task> taskList = TaskService::getThisWeekTaskList(db);
     foreach(Task currentTask, taskList){
       auto taskToList = new DashboardTask(this,&currentTask);
       auto item = new QListWidgetItem();
@@ -27,6 +27,11 @@ MainWindow::MainWindow(QWidget *parent)
       ui->dashboardTaskList->addItem(item);
       ui->dashboardTaskList->setItemWidget(item,taskToList);
     }
+
+    QTimer *timer = new QTimer(this);
+    connect(timer, &QTimer::timeout, this, &MainWindow::showTime);
+     timer->start(1000);
+
 
 }
 
@@ -86,4 +91,12 @@ void MainWindow::on_calendarWidget_clicked(const QDate &date){
 
 };
 
+void MainWindow::showTime()
+{
+    QTime time = QTime::currentTime();
+    QString text = time.toString("hh:mm");
+    if ((time.second() % 2) == 0)
+        text[2] = ' ';
+    ui->time->setText(text);
+}
 
