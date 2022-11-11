@@ -18,6 +18,8 @@ public:
 
 private:
     Ui::DashboardTask *ui;
+
 };
+
 
 #endif // DASHBOARDTASK_H

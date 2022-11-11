@@ -14,7 +14,9 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">border: 10px soild white;</string>
+   <string notr="true">border: 10px soild white;
+
+</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <property name="leftMargin">
@@ -35,7 +37,8 @@
    <item row="0" column="1">
     <widget class="QFrame" name="frame">
      <property name="styleSheet">
-      <string notr="true">background-color:#364250;border:1.5px solid #F3AD33;color: #fff;border-radius: 8;</string>
+      <string notr="true">background-color:#364250;border:1.5px solid #F3AD33;color: #fff;border-radius: 8
+</string>
      </property>
      <property name="frameShape">
       <enum>QFrame::StyledPanel</enum>
@@ -52,13 +55,25 @@
       </property>
       <item row="0" column="1">
        <widget class="QLabel" name="dateTimeLabel">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>120</width>
+          <height>16777215</height>
+         </size>
+        </property>
         <property name="font">
          <font>
           <bold>true</bold>
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">border: 0;</string>
+         <string notr="true">border:0;</string>
         </property>
         <property name="text">
          <string>time</string>
@@ -71,26 +86,13 @@
         </property>
        </widget>
       </item>
-      <item row="2" column="0">
+      <item row="3" column="0">
        <widget class="QLabel" name="typeLabel">
         <property name="styleSheet">
          <string notr="true">border: 0;</string>
         </property>
         <property name="text">
-         <string>TextLabel</string>
-        </property>
-        <property name="wordWrap">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="0">
-       <widget class="QLabel" name="descriptionLabel">
-        <property name="styleSheet">
-         <string notr="true">border: 0;</string>
-        </property>
-        <property name="text">
-         <string>TextLabel</string>
+         <string/>
         </property>
         <property name="wordWrap">
          <bool>true</bool>
@@ -105,7 +107,7 @@
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">border: 0;margin-bottom:10</string>
+         <string notr="true">border: 0;</string>
         </property>
         <property name="text">
          <string>TextLabel</string>
@@ -114,6 +116,84 @@
          <bool>true</bool>
         </property>
        </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="descriptionLabel">
+        <property name="styleSheet">
+         <string notr="true">border: 0;</string>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item alignment="Qt::AlignRight">
+         <widget class="QPushButton" name="editButton">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>30</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>30</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="layoutDirection">
+           <enum>Qt::LeftToRight</enum>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton {image: url(:/pen.png);background-color:#F3AD33;}
+
+QPushButton:pressed {
+    background-color: rgba(243, 173, 51,0.8);
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item alignment="Qt::AlignRight">
+         <widget class="QPushButton" name="deleteButton">
+          <property name="minimumSize">
+           <size>
+            <width>30</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>30</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton {image: url(:/delete.png);background-color:#FF0000;border: 1 solid #FF0000;}
+QPushButton:pressed {
+background-color: rgba(255,0,0,0.8)
+}
+</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
      </layout>
     </widget>

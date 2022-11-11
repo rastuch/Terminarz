@@ -27,7 +27,7 @@
        <string notr="true">border-color: rgb(25, 30, 35);</string>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tab">
        <property name="styleSheet">
