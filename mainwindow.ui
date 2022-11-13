@@ -16,20 +16,20 @@
   <property name="styleSheet">
    <string notr="true">alternate-background-color: rgb(25, 30, 35);</string>
   </property>
-  <widget class="QWidget" name="centralwidget">
+  <widget class="QWidget" name="main">
    <property name="styleSheet">
     <string notr="true"/>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QTabWidget" name="tabWidget">
+     <widget class="QTabWidget" name="switchingTabs">
       <property name="styleSheet">
        <string notr="true">border-color: rgb(25, 30, 35);</string>
       </property>
       <property name="currentIndex">
        <number>0</number>
       </property>
-      <widget class="QWidget" name="tab">
+      <widget class="QWidget" name="dashboard">
        <property name="styleSheet">
         <string notr="true">background-color:#191E23;</string>
        </property>
@@ -72,7 +72,7 @@
          </widget>
         </item>
         <item row="2" column="0" rowspan="2">
-         <widget class="QFrame" name="horizontalFrame">
+         <widget class="QFrame" name="info_dashboard">
           <property name="styleSheet">
            <string notr="true">background-color:#F3AD33;border-top-left-radius:8;border-top-right-radius:8;</string>
           </property>
@@ -96,7 +96,7 @@
             <number>12</number>
            </property>
            <item>
-            <widget class="QLabel" name="listInfo">
+            <widget class="QLabel" name="text_dashboard">
              <property name="font">
               <font>
                <pointsize>10</pointsize>
@@ -112,7 +112,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QLabel" name="time">
+            <widget class="QLabel" name="time_dashboard">
              <property name="font">
               <font>
                <pointsize>10</pointsize>
@@ -135,7 +135,7 @@
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="tab_2">
+      <widget class="QWidget" name="calendar">
        <property name="styleSheet">
         <string notr="true"/>
        </property>
@@ -284,7 +284,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButton">
+         <widget class="QPushButton" name="addButton">
           <property name="styleSheet">
            <string notr="true">background-color: #F3AD33;</string>
           </property>
@@ -294,7 +294,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QTextEdit" name="textEdit_2">
+         <widget class="QListWidget" name="calendarTask">
           <property name="styleSheet">
            <string notr="true">background-color: #191E23;
 color: #FFFFFF</string>

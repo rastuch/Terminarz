@@ -29,6 +29,9 @@ set(PROJECT_SOURCES
         dashboardtask.cpp
         dashboardtask.h
         dashboardtask.ui
+        calendartask.cpp
+        calendartask.h
+        calendartask.ui
     )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

@@ -14,9 +14,9 @@ void setTaskTypeStyle(QString type, Ui::DashboardTask ui){
     };
 
     if(shouldSetTextType == false){
-    ui.typeLabel->setStyleSheet(style);
+    ui.type_dashboard->setStyleSheet(style);
     }else{
-        ui.typeLabel->setText(type);
+        ui.type_dashboard->setText(type);
     }
 
 }
@@ -27,9 +27,9 @@ DashboardTask::DashboardTask(QWidget *parent,Task *task) :
     ui(new Ui::DashboardTask)
 {
     ui->setupUi(this);
-    ui->titleLabel->setText(task->getTitle());
-    ui->descriptionLabel->setText(task->getDescription());
-    ui->dateTimeLabel->setText(task->getTime() + " " + task->getQDate().toString("dd.MM.yyyy"));
+    ui->title_dashboard->setText(task->getTitle());
+    ui->description_dashboard->setText(task->getDescription());
+    ui->date_dashboard->setText(task->getTime() + " " + task->getQDate().toString("dd.MM.yyyy"));
     setTaskTypeStyle(task->getType(), *ui);
 
 }
