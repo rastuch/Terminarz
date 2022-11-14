@@ -16,6 +16,9 @@ public:
     explicit DashboardTask(QWidget *parent = nullptr, Task *task = new Task());
     ~DashboardTask();
 
+private slots:
+    void on_delete_dashboard_clicked();
+
 private:
     Ui::DashboardTask *ui;
 

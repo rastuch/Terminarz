@@ -29,6 +29,12 @@ set(PROJECT_SOURCES
         dashboardtask.cpp
         dashboardtask.h
         dashboardtask.ui
+        calendartask.cpp
+        calendartask.h
+        calendartask.ui
+        deletetaskpopup.cpp
+        deletetaskpopup.h
+        deletetaskpopup.ui
     )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
