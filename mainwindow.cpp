@@ -9,14 +9,16 @@
 #include <QTimer>
 #include <iostream>
 #include <dashboardtask.h>
+#include <calendartask.h>
+#include <deletetaskpopup.h>
 using namespace std;
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
+    connect(this,SIGNAL(on_yesButton_clicked()),this,SLOT(RUN()));
     ui->setupUi(this);
-
     db = QSqlDatabase::addDatabase("QSQLITE"); //Deklaracja jakiej bazy bedziemy uzywac w aplikacji
     db.setDatabaseName("calendar.sqlite"); //Ustawienie nazwy pliku z baza danych (baza danych powinna byc folderze budowania aplikacji a nie w plikach zrodlowych!)
     QList<Task> taskList = TaskService::getThisWeekTaskList(db);
@@ -31,8 +33,6 @@ MainWindow::MainWindow(QWidget *parent)
     QTimer *timer = new QTimer(this);
     connect(timer, &QTimer::timeout, this, &MainWindow::showTime);
      timer->start(1000);
-
-
 }
 
 MainWindow::~MainWindow()
@@ -40,56 +40,21 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-
-
-void MainWindow::on_pushButton_clicked() // Event okreslajacy co ma sie stac gdy nacisniemy na element pushButton
-{
-   QList<Task> taskList = TaskService::getAllTasks(db); // Zaciagniecie z bazy listy taskow
-
-    QString response = ""; //obiekt textEdit przymuje tylko jeden QString wiec sobie go deklarujemy
-
-    foreach(Task currentTask, taskList){ //iteracja po liscie, taka petla
-        response += "Nazwa: " + currentTask.getTitle() +"\nOpis: "+ currentTask.getDescription() + "\nData: " + currentTask.getTime() + " " + currentTask.getDate() +"\n\n";
-        //element ktory teraz jest przetwazany to currentTask, dopisujemy do response kazdy z naszych elementow juz ladnie opisany
-    }
-    ui->textEdit_2->setText(response); // wyswietlenie response na elemencie textEdit
-}
-
-
-
-void MainWindow::on_tabWidget_tabBarClicked(int index) //analogicznie do funkcji ponizej, wywolanie po kliknieciu w zakladke
-{
-
-}
-
-
-
 void MainWindow::on_calendarWidget_selectionChanged() //Wywolanie funkcji po kliknieciu w dany dzien kalendarza
 {
     QList<Task> taskList = TaskService::getAllTasks(db); // Zaciagniecie z bazy listy taskow
-    QString response = ""; //obiekt textEdit przymuje tylko jeden QString wiec sobie go deklarujemy
     QString selectedDate = ui->calendarWidget->selectedDate().toString("yyyy-MM-dd");
-    foreach(Task currentTask, taskList){ //iteracja po liscie, taka petla
+    ui->calendarTaskList->clear();
+    foreach(Task currentTask, taskList){
         if(currentTask.getDate()==selectedDate){ //Sprawdzenie czy dla zaznaczonej daty jest jakis task
-            response += "Nazwa: " + currentTask.getTitle() +"\nOpis: "+ currentTask.getDescription() + "\nData: " + currentTask.getTime() + " " + currentTask.getDate() +"\n\n";
-            //element ktory teraz jest przetwazany to currentTask, dopisujemy do response kazdy z naszych elementow juz ladnie opisany
+            auto taskToList = new calendarTask(this,&currentTask);
+            auto item = new QListWidgetItem();
+            item->setSizeHint(taskToList->sizeHint());
+            ui->calendarTaskList->addItem(item);
+            ui->calendarTaskList->setItemWidget(item,taskToList);
         }
     }
-    ui->textEdit_2->setText(response); // wyswietlenie response na elemencie textEdit
 }
-
-void MainWindow::on_dateEdit_dateChanged(const QDate &date){
-
-};
-
-
-void MainWindow::on_textEdit_textChanged(){
-
-};
-
-void MainWindow::on_calendarWidget_clicked(const QDate &date){
-
-};
 
 void MainWindow::showTime()
 {
@@ -97,6 +62,5 @@ void MainWindow::showTime()
     QString text = time.toString("hh:mm");
     if ((time.second() % 2) == 0)
         text[2] = ' ';
-    ui->time->setText(text);
+    ui->time_dashboard->setText(text);
 }
-
