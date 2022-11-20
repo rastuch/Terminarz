@@ -22,8 +22,11 @@ public slots:
 
     void on_delete_dashboard_clicked();
 
+    void onTaskDeleted();
+
 signals:
     void emitClicked();
+    void emitDeleteTaskAndRefreshList();
 
 private:
     Ui::DashboardTask *ui;

@@ -7,8 +7,8 @@ deleteTaskPopUp::deleteTaskPopUp(QWidget *parent) :
     ui(new Ui::deleteTaskPopUp)
 {
     ui->setupUi(this);
-    DashboardTask *dashboardtask = new DashboardTask;
-    connect(ui->yesButton,&QPushButton::clicked,dashboardtask,&DashboardTask::yesClicked);
+//    DashboardTask *dashboardtask = new DashboardTask;
+//    connect(ui->yesButton,&QPushButton::clicked,dashboardtask,&DashboardTask::yesClicked);
     /*Polaczenie przycisku TAK w popUpie po kliknieciu i wyslanie go do funkcji w DashboardTask*/
 }
 

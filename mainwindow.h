@@ -20,6 +20,7 @@ public:
 
 public slots:
     void receiveSignal();
+    void receiveRefreshSingal();
 
 private slots:
     void on_calendarWidget_selectionChanged();
