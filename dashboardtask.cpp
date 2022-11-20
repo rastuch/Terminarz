@@ -77,6 +77,9 @@ void DashboardTask::yesClicked()
 
 void DashboardTask::onTaskDeleted(){
     // z uwagi na to ze posiadamy juz na tym etapie id tasku (zobacz na konstruktor w 30 linijce tego pliku) sugeruje tutaj usunac nasz task z bazy
+    //ale spradz ktory sygnal dociera pierwszy bo moze lepiej to bedzie zrobic na popupie ze wzgledu na to ze nie wiem ktory sygnal dociera pierwszy
+    // jesli pierwszy dotrze do mainwindow to trzeba bedzie przekazac id tasku w konstruktorze popup i tam usunac
+
     qDebug("nacisneto przycisk usuwania w popupie");
 }
 
