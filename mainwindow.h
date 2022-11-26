@@ -18,22 +18,23 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+public slots:
+    void receiveRefreshSingal();
+
 private slots:
-    void on_pushButton_clicked();
-
-    void on_textEdit_textChanged();
-
-    void on_tabWidget_tabBarClicked(int index);
-
-    void on_dateEdit_dateChanged(const QDate &date);
-
-    void on_calendarWidget_clicked(const QDate &date);
-
     void on_calendarWidget_selectionChanged();
 
    void showTime();
 
+   void loadCalendarTaskList();
+
+   void loadDashboardTaskList();
+
+signals:
+   void executeRefresh();
+
 private:
     Ui::MainWindow *ui;
+
 };
 #endif // MAINWINDOW_H
