@@ -33,9 +33,6 @@ DashboardTask::DashboardTask(QWidget *parent,Task *task) :
 {
     ui->setupUi(this);
     currentTask = *task;
-//    MainWindow *mainwindow = new MainWindow;
-//    connect(this,&DashboardTask::emitClicked,mainwindow,&MainWindow::receiveSignal);
-    /*Polaczenie emitowanego sygnalu emitClicked z funkcji yesClicked i wyslanie go do funkcji receiveSignal w MainWindow*/
     ui->title_dashboard->setText(task->getTitle());
     ui->description_dashboard->setText(task->getDescription());
     ui->date_dashboard->setText(task->getTime() + " " + task->getQDate().toString("dd.MM.yyyy"));
@@ -72,11 +69,7 @@ void DashboardTask::on_delete_dashboard_clicked()
 
 
 void DashboardTask::onTaskDeleted(){
-    // z uwagi na to ze posiadamy juz na tym etapie id tasku (zobacz na konstruktor w 30 linijce tego pliku) sugeruje tutaj usunac nasz task z bazy
-    //ale spradz ktory sygnal dociera pierwszy bo moze lepiej to bedzie zrobic na popupie ze wzgledu na to ze nie wiem ktory sygnal dociera pierwszy
-    // jesli pierwszy dotrze do mainwindow to trzeba bedzie przekazac id tasku w konstruktorze popup i tam usunac
     qDebug("nacisneto przycisk usuwania w popupie");
-
 }
 
 

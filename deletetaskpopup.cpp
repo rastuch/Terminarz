@@ -26,9 +26,7 @@ void deleteTaskPopUp::on_noButton_clicked()
 }
 void deleteTaskPopUp::on_yesButton_clicked()
 {
-    qDebug("delete");
     QSqlDatabase db = QSqlDatabase::database();
-    auto deleteDashboardTask = new deleteTaskPopUp(this,&currentTask);
     TaskService::deleteTaskById(db,currentTask.getId());
     QDialog::reject();
 }

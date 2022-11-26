@@ -33,7 +33,6 @@ MainWindow::~MainWindow()
 void MainWindow::loadDashboardTaskList()
 {
     QList<Task> taskList = TaskService::getThisWeekTaskList(db);
-    qDebug("odswierzanie");
     foreach(Task currentTask, taskList){
       auto taskToList = new DashboardTask(this,&currentTask);
       QObject::connect(taskToList, &DashboardTask::emitDeleteTaskAndRefreshList, this,&MainWindow::receiveRefreshSingal);
