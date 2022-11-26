@@ -1,6 +1,11 @@
 #include "dashboardtask.h"
 #include "ui_dashboardtask.h"
-
+#include "deletetaskpopup.h"
+#include <mainwindow.h>
+#include "task.h"
+#include <QDebug>
+#include <TaskService.h>
+using namespace std;
 void setTaskTypeStyle(QString type, Ui::DashboardTask ui){
     QString style = "border: 0;background-position:left center;min-width: 30px;min-height:30px;background-repeat:no-repeat";
     bool shouldSetTextType = false;
@@ -14,9 +19,9 @@ void setTaskTypeStyle(QString type, Ui::DashboardTask ui){
     };
 
     if(shouldSetTextType == false){
-    ui.typeLabel->setStyleSheet(style);
+    ui.type_dashboard->setStyleSheet(style);
     }else{
-        ui.typeLabel->setText(type);
+        ui.type_dashboard->setText(type);
     }
 
 }
@@ -27,9 +32,10 @@ DashboardTask::DashboardTask(QWidget *parent,Task *task) :
     ui(new Ui::DashboardTask)
 {
     ui->setupUi(this);
-    ui->titleLabel->setText(task->getTitle());
-    ui->descriptionLabel->setText(task->getDescription());
-    ui->dateTimeLabel->setText(task->getTime() + " " + task->getQDate().toString("dd.MM.yyyy"));
+    currentTask = *task;
+    ui->title_dashboard->setText(task->getTitle());
+    ui->description_dashboard->setText(task->getDescription());
+    ui->date_dashboard->setText(task->getTime() + " " + task->getQDate().toString("dd.MM.yyyy"));
     setTaskTypeStyle(task->getType(), *ui);
 
 }
@@ -38,5 +44,33 @@ DashboardTask::~DashboardTask()
 {
     delete ui;
 }
+
+
+
+void DashboardTask::on_delete_dashboard_clicked()
+{
+    auto deleteTaskPopUp1 = new deleteTaskPopUp(this,&currentTask);
+    // Na etapie tworzenia obiektu deleteTaskPopUp dodajemy connect pomiedzy SYGNALEM ktorym bedziemy nadawac wyżej do rodzica oraz do samego siebie(MAINWINDOW i DashboardTask)
+    //czyli &DashboardTask::emitDeleteTaskAndRefreshList
+
+    // i sygnalem emitowanym przez tworzony obiekt czyli nasz popup deleteTaskPopUp.findChild<QPushButton *>("yesButton"), &QPushButton::clicked
+    // zauważ że na tym etapie nie mozemy sie jeszcze odwolac bezposrednio do yesButton dlatego uzywam funkcji findChild
+    // znajdzie ona przycisk po jego nazwie i umożliwi odwolanie sie do niego
+    QObject::connect(deleteTaskPopUp1->findChild<QPushButton *>("yesButton"), &QPushButton::clicked, this, &DashboardTask::emitDeleteTaskAndRefreshList);
+
+
+    // Nastepnie tworzymy kolejne polaczenie, tym razem miedzy syganelem ktory bedziemy tez emitowac do MAINWINDOW
+    // czyli wybieramy sygnal  &DashboardTask::emitDeleteTaskAndRefreshList i łączymy go ze slotem &DashboardTask::onTaskDeleted
+    QObject::connect(this, &DashboardTask::emitDeleteTaskAndRefreshList, this, &DashboardTask::onTaskDeleted);
+    deleteTaskPopUp1->setModal(true);
+    deleteTaskPopUp1->exec();
+
+}
+
+
+void DashboardTask::onTaskDeleted(){
+    qDebug("nacisneto przycisk usuwania w popupie");
+}
+
 
 

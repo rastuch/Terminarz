@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <task.h>
+#include <mainwindow.h>
 
 namespace Ui {
 class DashboardTask;
@@ -15,6 +16,15 @@ class DashboardTask : public QWidget
 public:
     explicit DashboardTask(QWidget *parent = nullptr, Task *task = new Task());
     ~DashboardTask();
+    Task currentTask;
+
+public slots:
+    void on_delete_dashboard_clicked();
+
+    void onTaskDeleted();
+
+signals:
+    void emitDeleteTaskAndRefreshList();
 
 private:
     Ui::DashboardTask *ui;
