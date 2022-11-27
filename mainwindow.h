@@ -30,6 +30,10 @@ private slots:
 
    void loadDashboardTaskList();
 
+   void markDaysWithTask(QDate currentDate);
+
+   void clearMarksForMonth(QDate date);
+
 signals:
    void executeRefresh();
 

@@ -174,6 +174,6 @@ void addTasksForNextMounth(QSqlDatabase db){
         }
         TaskService::addTask(db,task);
     }
+}
+}
 
-}
-}
