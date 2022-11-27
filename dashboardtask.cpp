@@ -1,6 +1,7 @@
 #include "dashboardtask.h"
 #include "ui_dashboardtask.h"
 #include "deletetaskpopup.h"
+#include "edittaskpopup.h"
 #include <mainwindow.h>
 #include "task.h"
 #include <QDebug>
@@ -70,6 +71,21 @@ void DashboardTask::on_delete_dashboard_clicked()
 
 void DashboardTask::onTaskDeleted(){
     qDebug("nacisneto przycisk usuwania w popupie");
+}
+
+
+void DashboardTask::on_edit_dashboard_clicked()
+{
+    auto editTaskPopUp1 = new EditTaskPopUp(this,&currentTask);
+    QObject::connect(editTaskPopUp1->findChild<QPushButton *>("confirmEditButton"), &QPushButton::clicked, this, &DashboardTask::emitEditTask);
+    QObject::connect(this, &DashboardTask::emitEditTask, this, &DashboardTask::onTaskEdited);
+    editTaskPopUp1->setModal(true);
+    editTaskPopUp1->exec();
+}
+
+void DashboardTask::onTaskEdited()
+{
+    qDebug("nacisnieto przycisk edycji w popupie");
 }
 
 
