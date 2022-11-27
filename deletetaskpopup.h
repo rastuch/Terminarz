@@ -21,6 +21,8 @@ private slots:
 
     void on_yesButton_clicked();
 
+
+
 private:
     Ui::deleteTaskPopUp *ui;
 };

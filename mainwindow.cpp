@@ -9,9 +9,11 @@
 #include <QTimer>
 #include <dashboardtask.h>
 #include <deletetaskpopup.h>
+#include <edittaskpopup.h>
 #include <QDebug>
 #include <QTableWidget>
 #include <QListWidgetItem>
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -36,6 +38,7 @@ void MainWindow::loadDashboardTaskList()
     foreach(Task currentTask, taskList){
       auto taskToList = new DashboardTask(this,&currentTask);
       QObject::connect(taskToList, &DashboardTask::emitDeleteTaskAndRefreshList, this,&MainWindow::receiveRefreshSingal);
+      QObject::connect(taskToList, &DashboardTask::emitEditTask, this,&MainWindow::receiveRefreshSingal);
       auto item = new QListWidgetItem();
       item->setSizeHint(taskToList->sizeHint());
       ui->dashboardTaskList->addItem(item);
@@ -54,6 +57,7 @@ void MainWindow::loadCalendarTaskList()
             // Na etapie tworzenia obiektu DashboardTask dodajemy connect pomiedzy slotem &MainWindow::receiveRefreshSingal
             //i emitowanym sygnalem z taskToList (czyli tworzony obiekt DashboardTask), syganl ten to &DashboardTask::emitDeleteTaskAndRefreshList
             QObject::connect(taskToList, &DashboardTask::emitDeleteTaskAndRefreshList, this,&MainWindow::receiveRefreshSingal);
+            QObject::connect(taskToList, &DashboardTask::emitEditTask, this,&MainWindow::receiveRefreshSingal);
             auto item = new QListWidgetItem();
             item->setSizeHint(taskToList->sizeHint());
             ui->calendarTaskList->addItem(item);
@@ -83,4 +87,3 @@ void MainWindow::receiveRefreshSingal()
     ui->dashboardTaskList->clear();
     loadDashboardTaskList();
 }
-

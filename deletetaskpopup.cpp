@@ -9,6 +9,7 @@ deleteTaskPopUp::deleteTaskPopUp(QWidget *parent,Task *task) :
     ui(new Ui::deleteTaskPopUp)
 {
     ui->setupUi(this);
+    deleteTaskPopUp::setMinimumSize(364,152);
     currentTask = *task;
 //    DashboardTask *dashboardtask = new DashboardTask;
 //    connect(ui->yesButton,&QPushButton::clicked,dashboardtask,&DashboardTask::yesClicked);

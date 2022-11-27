@@ -32,6 +32,9 @@ set(PROJECT_SOURCES
         deletetaskpopup.cpp
         deletetaskpopup.h
         deletetaskpopup.ui
+        edittaskpopup.cpp
+        edittaskpopup.h
+        edittaskpopup.ui
 
 
     )
