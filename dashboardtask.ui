@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="toolTipDuration">
+   <number>-1</number>
+  </property>
   <property name="styleSheet">
    <string notr="true">border: 10px soild white;
 
@@ -116,6 +119,12 @@ border-radius: 8
       </item>
       <item row="2" column="0">
        <widget class="QLabel" name="description_dashboard">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
         <property name="maximumSize">
          <size>
           <width>16777215</width>
@@ -135,6 +144,12 @@ border-radius: 8
       </item>
       <item row="0" column="0">
        <widget class="QLabel" name="title_dashboard">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
         <property name="maximumSize">
          <size>
           <width>16777215</width>

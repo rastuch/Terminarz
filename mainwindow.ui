@@ -10,31 +10,73 @@
     <height>629</height>
    </rect>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>503</width>
+    <height>629</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>503</width>
+    <height>629</height>
+   </size>
+  </property>
   <property name="windowTitle">
    <string>TERMINARZ</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">alternate-background-color: rgb(25, 30, 35);</string>
+   <string notr="true"/>
   </property>
   <widget class="QWidget" name="main">
    <property name="styleSheet">
-    <string notr="true"/>
+    <string notr="true">
+    background-color: #191E23;</string>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
      <widget class="QTabWidget" name="switchingTabs">
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+        <bold>true</bold>
+        <underline>false</underline>
+       </font>
+      </property>
       <property name="styleSheet">
-       <string notr="true">border-color: rgb(25, 30, 35);</string>
+       <string notr="true">QTabWidget::pane {
+	border: 0;
+} 
+
+QTabBar::tab {
+	color: #FFFFFF;
+	border-radius: 15px;
+	width: 222px;
+	background-color: #364250;
+	border: 0; 
+	padding: 10px;
+} 
+
+QTabBar::tab:hover { 
+	background-color: #F7C670;
+	color: #000000;
+}
+QTabBar::tab:selected { 
+	background-color: #F3AD33;
+	color: #000000;
+
+}
+</string>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="dashboard">
        <property name="styleSheet">
         <string notr="true">background-color:#191E23;</string>
        </property>
        <attribute name="title">
-        <string>Dashboard</string>
+        <string>Najbliższe zadania</string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout_3">
         <property name="topMargin">
@@ -155,7 +197,6 @@
 	border-top-left-radius: 5px;
 	border-top-right-radius: 5px;
 }
-
 #qt_calendar_prevmonth,
 #qt_calendar_nextmonth {			/*Przyciski zmiany miesiąca*/ 
     border: none; 			/*Usuwa obramowanie */
@@ -187,7 +228,7 @@
 	background-color: #191E23;
 }
 #qt_calendar_yearbutton{			/*Przycisk zmiany roku*/
-	color: #000000;
+	color: #FFFFFF;
 	margin: 5px;
 	border-radius: 5px;
 	font-size: 13px;
@@ -195,7 +236,7 @@
 	padding: 0 10px;
 }
 #qt_calendar_monthbutton{			/*Przycisk zmiany miesiąca*/
-	color: #000000;
+	color: #FFFFFF;
 	width: 110px;
 	font-size: 13px;
 	margin: 5px 0;
@@ -286,7 +327,7 @@
         <item>
          <widget class="QPushButton" name="addButton">
           <property name="styleSheet">
-           <string notr="true">background-color: #F3AD33; color: #000000; font-weight: 700;</string>
+           <string notr="true">background-color: #F3AD33;</string>
           </property>
           <property name="text">
            <string>Dodaj</string>
