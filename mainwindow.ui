@@ -286,7 +286,7 @@
         <item>
          <widget class="QPushButton" name="addButton">
           <property name="styleSheet">
-           <string notr="true">background-color: #F3AD33;</string>
+           <string notr="true">background-color: #F3AD33; color: #000000; font-weight: 700;</string>
           </property>
           <property name="text">
            <string>Dodaj</string>

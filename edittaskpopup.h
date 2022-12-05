@@ -12,9 +12,10 @@ class EditTaskPopUp : public QDialog
     Q_OBJECT
 
 public:
-    explicit EditTaskPopUp(QWidget *parent = nullptr,Task *task = new Task());
+    explicit EditTaskPopUp(QWidget *parent = nullptr,Task *task = new Task(),bool isNewTask = false);
     ~EditTaskPopUp();
     Task currentTask;
+    bool addNewTaskOption;
 
 private slots:
     void on_confirmEditButton_clicked();
