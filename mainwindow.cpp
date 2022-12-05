@@ -58,7 +58,7 @@ void MainWindow::loadDashboardTaskList()
       QObject::connect(taskToList, &DashboardTask::emitDeleteTaskAndRefreshList, this,&MainWindow::receiveRefreshSingal);
       QObject::connect(taskToList, &DashboardTask::emitEditTask, this,&MainWindow::receiveRefreshSingal);
       auto item = new QListWidgetItem();
-      item->setSizeHint(taskToList->sizeHint());
+      item->setSizeHint(ui->dashboardTaskList->sizeHint());
       ui->dashboardTaskList->addItem(item);
       ui->dashboardTaskList->setItemWidget(item,taskToList);
       markDaysWithTask(ui->calendarWidget->selectedDate());
@@ -75,7 +75,7 @@ void MainWindow::loadCalendarTaskList()
             QObject::connect(taskToList, &DashboardTask::emitDeleteTaskAndRefreshList, this,&MainWindow::receiveRefreshSingal);
             QObject::connect(taskToList, &DashboardTask::emitEditTask, this,&MainWindow::receiveRefreshSingal);
             auto item = new QListWidgetItem();
-            item->setSizeHint(taskToList->sizeHint());
+            item->setSizeHint(ui->calendarTaskList->sizeHint());
             ui->calendarTaskList->addItem(item);
             ui->calendarTaskList->setItemWidget(item,taskToList);
             markDaysWithTask(ui->calendarWidget->selectedDate());
