@@ -128,3 +128,13 @@ void MainWindow::markDaysWithTask(QDate currentDate){
          }
      }
 }
+
+void MainWindow::on_addButton_clicked()
+{       auto emptyTaskWithSelectedDay = new Task();
+        emptyTaskWithSelectedDay->setDate(ui->calendarWidget->selectedDate().toString("yyyy-MM-dd"));
+        auto addNewTaskPopup = new EditTaskPopUp(this,emptyTaskWithSelectedDay,true);
+        QObject::connect(addNewTaskPopup->findChild<QPushButton *>("confirmEditButton"), &QPushButton::clicked, this, &MainWindow::receiveRefreshSingal);
+        addNewTaskPopup->setModal(true);
+        addNewTaskPopup->exec();
+}
+

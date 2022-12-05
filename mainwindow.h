@@ -34,6 +34,8 @@ private slots:
 
    void clearMarksForMonth(QDate date);
 
+   void on_addButton_clicked();
+
 signals:
    void executeRefresh();
 
