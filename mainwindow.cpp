@@ -15,6 +15,10 @@
 #include <QListWidgetItem>
 #include <QTextCharFormat>
 
+/*! @class Klasa która dostarcza informacje o formatowaniu znaków
+* @return  zwraca rodzaje elementów tekstowych
+*/
+
 QTextCharFormat dayTaskTextFormat(bool haveTask,bool isWeekend){
     QTextCharFormat format;
     if(haveTask){
@@ -30,6 +34,9 @@ QTextCharFormat dayTaskTextFormat(bool haveTask,bool isWeekend){
     }
     return format;
 }
+/*! @brief Funkcja listy inicjalizacyjnej
+* @class QTimer zapewnia powtarzalne i pojedyncze liczniki czasu
+*/
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -50,6 +57,10 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+/*! @brief Główna funkcja zadań w kalendarzu ( dodawanie , edytowanie i usuwanie zadań )
+* @class QList Przechowuje elementy na liście, która zapewnia szybki dostęp oparty na indeksie
+ oraz wstawianie i usuwanie oparte na indeksie.
+*/
 void MainWindow::loadDashboardTaskList()
 {
     QList<Task> taskList = TaskService::getThisWeekTaskList(db);
@@ -65,7 +76,7 @@ void MainWindow::loadDashboardTaskList()
     }
 }
 
-
+/*! @brief funkcja która pobiera liste zadań z bazy danych */
 void MainWindow::loadCalendarTaskList()
 {
     QList<Task> taskList = TaskService::getAllTasksByDate(db, ui->calendarWidget->selectedDate());
@@ -81,12 +92,16 @@ void MainWindow::loadCalendarTaskList()
             markDaysWithTask(ui->calendarWidget->selectedDate());
     }
 }
-
+/*! @brief Funkcja która ładuje liste zadań */
 void MainWindow::on_calendarWidget_selectionChanged()
 {
     loadCalendarTaskList();
 }
 
+/*! @brief Funkcja która przedstawia czas w kalendarzu
+ * @class QTime klasa podaje rzeczywisty czas
+ * @class QString klasa pozwala na edycje czasu
+*/
 void MainWindow::showTime()
 {
     QTime time = QTime::currentTime();
@@ -95,7 +110,7 @@ void MainWindow::showTime()
         text[2] = ' ';
     ui->time_dashboard->setText(text);
 }
-
+/*! @brief funkcja która ma za zdanie wyczyścić "zadania" w kalendarzu */
 void MainWindow::receiveRefreshSingal()
 {
     ui->calendarTaskList->clear();
@@ -103,7 +118,7 @@ void MainWindow::receiveRefreshSingal()
     ui->dashboardTaskList->clear();
     loadDashboardTaskList();
 }
-
+/*! @brief Funkcja która wyczyszcza date w kalendarzu */
 void MainWindow::clearMarksForMonth(QDate date){
     for(int i = 1; i <= date.daysInMonth(); i++) {
        QDate currentDay = date;
@@ -112,6 +127,7 @@ void MainWindow::clearMarksForMonth(QDate date){
        ui->calendarWidget->setDateTextFormat(currentDay , dayTaskTextFormat(false,isWeekend));
     }
 };
+/*! @brief Funkcja przedstawiająca date w kalendarzu */
 
 void MainWindow::markDaysWithTask(QDate currentDate){
      auto currentMonth = currentDate;

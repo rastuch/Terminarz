@@ -7,19 +7,20 @@
 #include <QDebug>
 #include <TaskService.h>
 using namespace std;
+
+/*! @brief Funkcja przypisania zadania */
 void setTaskTypeStyle(QString type, Ui::DashboardTask ui){
     QString style = "border: 0;background-position:left center;min-width: 30px;min-height:30px;background-repeat:no-repeat";
     bool shouldSetTextType = false;
-
-    if(type == "MEETING"){
+     if(type == "MEETING"){ /** @return Przypisanie zadania jako "spotkanie" */
         style = "background-image: url(:/icon/account-group.png);" + style;
-    }else if(type == "IMPORTANT"){
+    }else if(type == "IMPORTANT"){ /** @return Przypisanie zadania jako "ważne zadanie" */
         style = "background-image: url(:/icon/alert-box-outline.png);" + style;
     }else{
         shouldSetTextType = true;
     };
 
-    if(shouldSetTextType == false){
+    if(shouldSetTextType == false){ /** @return przerwanie przypisywania zadania */
     ui.type_dashboard->setStyleSheet(style);
     }else{
         ui.type_dashboard->setText(type);
@@ -27,7 +28,9 @@ void setTaskTypeStyle(QString type, Ui::DashboardTask ui){
 
 }
 
-
+/*! @brief Główna funkcja panelu zadania
+ *  @class QWidget jest klasą bazową wszystkich obiektów interfejsu
+ */
 DashboardTask::DashboardTask(QWidget *parent,Task *task) :
     QWidget(parent),
     ui(new Ui::DashboardTask)
@@ -47,6 +50,9 @@ DashboardTask::~DashboardTask()
 }
 
 
+/*! @brief Funkcja usuwania "zadania" po kliknięciu w dashbordzie
+ *  @class QObject jest klasą bazową wszystkich obiektów , connect łączy sygnał do gniazda
+ */
 
 void DashboardTask::on_delete_dashboard_clicked()
 {
@@ -68,12 +74,15 @@ void DashboardTask::on_delete_dashboard_clicked()
 
 }
 
-
+/*! @brief Funkcja usuwania zadania w popupie
+ *  @class qDebug udostępnia strumień wyjściowy dla informacji debugowania
+*/
 void DashboardTask::onTaskDeleted(){
     qDebug("nacisneto przycisk usuwania w popupie");
 }
 
-
+/*! @brief Funkcja edycji "zadania" po kliknięciu w panelu która przenosi nas do edycji okna zadania
+*/
 void DashboardTask::on_edit_dashboard_clicked()
 {
     auto editTaskPopUp1 = new EditTaskPopUp(this,&currentTask);
@@ -82,7 +91,7 @@ void DashboardTask::on_edit_dashboard_clicked()
     editTaskPopUp1->setModal(true);
     editTaskPopUp1->exec();
 }
-
+/*! @brief Funkcja edycji zadania w popupie */
 void DashboardTask::onTaskEdited()
 {
     qDebug("nacisnieto przycisk edycji w popupie");

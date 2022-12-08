@@ -11,7 +11,9 @@
 // Przestrzen nazw jest tu uzywana zamiast klasy poniewaz sa tu tylko metody statyczne wiec nie mamy potrzeby tworzenia nowej instancji obiektu
 // Tutaj bedziemy wrzucac wszystkie funkcje ktore maja dostarczac informacje oraz/z bazy
 namespace TaskService {
-
+/*! @brief Funkcja ktora wyciaga wszystkie zadania z bazy i zwraca liste obiektow typu Task
+ *  @class QSqlQuery q - Deklaracja zmiennej
+ *  @return zwraca liste zadań */
 QList<Task> getAllTasks(QSqlDatabase db){ //Funkcja ktora wyciaga wszystkie zadania z bazy i zwraca liste obiektow typu Task, argumentem jest zadeklarowana baza danych
     db.open(); // Otworzenie polaczenia z bazy danych
     QSqlQuery q; // Deklaracja zmiennej typu zapytanie do DB
@@ -46,6 +48,10 @@ QList<Task> getAllTasks(QSqlDatabase db){ //Funkcja ktora wyciaga wszystkie zada
     // dlatego tak wazne jest zamykanie polaczen (zwalnianie puli polaczen) aby nasz apka byla wydajna i nie zeby nie okazalo sie ze brakuje polaczen bo nie uzyskay danych z bazy
     return taskList;
 }
+/*! @brief Funkcja, która pobiera wszystkie zadania według daty ( połączona jest z bazą danych )
+ * @return Zwraca liste zadań według daty
+*/
+
 QList<Task> getAllTasksByDate(QSqlDatabase db,QDate date){
     db.open();
     QSqlQuery q;
@@ -78,10 +84,10 @@ QList<Task> getAllTasksByDate(QSqlDatabase db,QDate date){
       db.close();
       return taskList;
 }
-
+/*! @brief Funkcja dodawania nowych zadań  */
 void addTask(QSqlDatabase db,Task newTask){
     db.open();
-    QSqlQuery q;
+    QSqlQuery q; /** @class zapewnia sposób wykonywania instrukcji SQL */
     QString query = QString("INSERT INTO TASK (title, description, date, time, type) VALUES ('%1','%2','%3','%4','%5')").arg(
                 newTask.getTitle(),newTask.getDescription(),newTask.getDate(),newTask.getTime(),newTask.getType());
     q.exec(query);
@@ -95,7 +101,7 @@ void addTask(QSqlDatabase db,Task newTask){
     q.clear();
     db.close();
 }
-
+/*! @brief Funkcja usuwania zadań  */
 void deleteTaskById(QSqlDatabase db,int taskId){
     db.open();
     QSqlQuery q;
@@ -111,7 +117,9 @@ void deleteTaskById(QSqlDatabase db,int taskId){
     q.clear();
     db.close();
 }
-
+/*! @brief Funkcja aktualizująca zadania z bazy
+ * @class QSqlQuery - zapewnia sposób wykonywania instrukcji SQL
+*/
 void updateTask(QSqlDatabase db,Task updatedTask){
     db.open();
     QSqlQuery q;
@@ -135,6 +143,9 @@ void updateTask(QSqlDatabase db,Task updatedTask){
     q.clear();
     db.close();
 }
+/*! @brief Funkcja pobierająca zadania z bazy
+ *  @return Zwraca liste zadań
+ *  @class QDate - Klasa udostępnia funkcje daty (bieżącą date ) */
 
 QList<Task> getThisWeekTaskList(QSqlDatabase db){
      QList<Task> weekTaskList;
@@ -148,6 +159,7 @@ QList<Task> getThisWeekTaskList(QSqlDatabase db){
         }
         return weekTaskList;
 }
+/*! @brief Funkcja pomocnicza uzupełniająca przykładowe wpisy w bazie */
 
 void addTasksForNextMounth(QSqlDatabase db){
     QString loremIpsumText ="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, "

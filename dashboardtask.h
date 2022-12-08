@@ -5,6 +5,11 @@
 #include <task.h>
 #include <mainwindow.h>
 
+
+/*!
+ * @class Opis klasy panelu zadania
+  */
+
 namespace Ui {
 class DashboardTask;
 }
