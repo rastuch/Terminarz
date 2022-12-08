@@ -151,7 +151,7 @@ QList<Task> getThisWeekTaskList(QSqlDatabase db){
      QList<Task> weekTaskList;
      QDate date = QDate::currentDate();
         for(int i = 0; i <= 6; i++ ){
-           date = date.addDays(i);
+           date = date.addDays(1);
            QList<Task> dayTaskList = getAllTasksByDate(db, date);
            foreach (Task currentTask, dayTaskList) {
                weekTaskList.append(currentTask);

@@ -36,6 +36,8 @@ DashboardTask::DashboardTask(QWidget *parent,Task *task) :
     ui(new Ui::DashboardTask)
 {
     ui->setupUi(this);
+    ui->title_dashboard->setWordWrap(true);
+    ui->description_dashboard->setWordWrap(true);
     currentTask = *task;
     ui->title_dashboard->setText(task->getTitle());
     ui->description_dashboard->setText(task->getDescription());
