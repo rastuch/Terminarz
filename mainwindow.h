@@ -5,6 +5,10 @@
 #include <QSqlDatabase>
 #include <QSqlQuery>
 
+
+/*!
+ * @class Opis klasy listy inicjalizacyjnej
+  */
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE

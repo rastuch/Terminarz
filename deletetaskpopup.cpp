@@ -4,6 +4,9 @@
 #include "task.h"
 #include <TaskService.h>
 
+/*! @brief Główna funkcja definitywnego usunięcia zadania
+* @class QDialog(parent)-> Relacja nadrzędna okna dialogowego
+*/
 deleteTaskPopUp::deleteTaskPopUp(QWidget *parent,Task *task) :
     QDialog(parent),
     ui(new Ui::deleteTaskPopUp)
@@ -20,11 +23,14 @@ deleteTaskPopUp::~deleteTaskPopUp()
 {
     delete ui;
 }
-
+/*! @brief Naciśnięcie przycisku "nie" powoduje przerwanie usuwania zadania i wrócenie do dashbordu
+* @class QDialog::reject() --> okno dialogowe zostało odrzucone przez funkcje odrzucenia
+*/
 void deleteTaskPopUp::on_noButton_clicked()
 {
     QDialog::reject();
 }
+/*! @brief Naciśnięcie przycisku "tak" powoduje usunięcie "zadania" z listy i bazy */
 void deleteTaskPopUp::on_yesButton_clicked()
 {
     QSqlDatabase db = QSqlDatabase::database();

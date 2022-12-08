@@ -3,6 +3,12 @@
 
 #include <QDialog>
 #include <dashboardtask.h>
+
+
+/*!
+ * @class Opis klasy usunięcia zadania
+  */
+
 namespace Ui {
 class deleteTaskPopUp;
 }

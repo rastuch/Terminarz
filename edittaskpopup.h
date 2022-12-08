@@ -3,6 +3,12 @@
 
 #include <QDialog>
 #include <dashboardtask.h>
+
+
+/*!
+ * @class Opis klasy edytowanego zadania
+  */
+
 namespace Ui {
 class EditTaskPopUp;
 }
