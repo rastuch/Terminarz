@@ -11,9 +11,7 @@
 // Przestrzen nazw jest tu uzywana zamiast klasy poniewaz sa tu tylko metody statyczne wiec nie mamy potrzeby tworzenia nowej instancji obiektu
 // Tutaj bedziemy wrzucac wszystkie funkcje ktore maja dostarczac informacje oraz/z bazy
 namespace TaskService {
-/*! @brief Funkcja ktora wyciaga wszystkie zadania z bazy i zwraca liste obiektow typu Task
- *  @class QSqlQuery q - Deklaracja zmiennej
- *  @return zwraca liste zadań */
+/*! @brief Funkcja ktora wyciaga wszystkie zadania z bazy i zwraca liste obiektow typu Task */
 QList<Task> getAllTasks(QSqlDatabase db){ //Funkcja ktora wyciaga wszystkie zadania z bazy i zwraca liste obiektow typu Task, argumentem jest zadeklarowana baza danych
     db.open(); // Otworzenie polaczenia z bazy danych
     QSqlQuery q; // Deklaracja zmiennej typu zapytanie do DB
@@ -87,7 +85,7 @@ QList<Task> getAllTasksByDate(QSqlDatabase db,QDate date){
 /*! @brief Funkcja dodawania nowych zadań  */
 void addTask(QSqlDatabase db,Task newTask){
     db.open();
-    QSqlQuery q; /** @class zapewnia sposób wykonywania instrukcji SQL */
+    QSqlQuery q;
     QString query = QString("INSERT INTO TASK (title, description, date, time, type) VALUES ('%1','%2','%3','%4','%5')").arg(
                 newTask.getTitle(),newTask.getDescription(),newTask.getDate(),newTask.getTime(),newTask.getType());
     q.exec(query);
@@ -117,9 +115,7 @@ void deleteTaskById(QSqlDatabase db,int taskId){
     q.clear();
     db.close();
 }
-/*! @brief Funkcja aktualizująca zadania z bazy
- * @class QSqlQuery - zapewnia sposób wykonywania instrukcji SQL
-*/
+/*! @brief Funkcja aktualizująca zadania z bazy */
 void updateTask(QSqlDatabase db,Task updatedTask){
     db.open();
     QSqlQuery q;
@@ -143,9 +139,7 @@ void updateTask(QSqlDatabase db,Task updatedTask){
     q.clear();
     db.close();
 }
-/*! @brief Funkcja pobierająca zadania z bazy
- *  @return Zwraca liste zadań
- *  @class QDate - Klasa udostępnia funkcje daty (bieżącą date ) */
+/*! @brief Funkcja pobierająca zadania z bazy */
 
 QList<Task> getThisWeekTaskList(QSqlDatabase db){
      QList<Task> weekTaskList;

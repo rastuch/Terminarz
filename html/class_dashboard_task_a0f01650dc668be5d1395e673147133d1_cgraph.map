@@ -1,0 +1,4 @@
+<map id="DashboardTask::on_edit_dashboard_clicked" name="DashboardTask::on_edit_dashboard_clicked">
+<area shape="rect" id="node1" title="Funkcja edycji &quot;zadania&quot; po kliknięciu w panelu która przenosi nas do edycji okna zadania." coords="5,5,168,45"/>
+<area shape="rect" id="node2" href="$class_dashboard_task.html#aec1a91b0517656301242596c6cf338d6" title="Funkcja edycji zadania w popupie." coords="216,13,415,38"/>
+</map>

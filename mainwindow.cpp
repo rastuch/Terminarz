@@ -145,6 +145,7 @@ void MainWindow::markDaysWithTask(QDate currentDate){
      }
 }
 
+/*! @brief Funkcja opisująca przycisk "dodaj" w kalendarzu, która powoduje utworzenie nowego zadania */
 void MainWindow::on_addButton_clicked()
 {       auto emptyTaskWithSelectedDay = new Task();
         emptyTaskWithSelectedDay->setDate(ui->calendarWidget->selectedDate().toString("yyyy-MM-dd"));

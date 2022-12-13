@@ -1,0 +1,4 @@
+<map id="DashboardTask" name="DashboardTask">
+<area shape="rect" id="node1" title=" " coords="5,93,204,251"/>
+<area shape="rect" id="node2" href="$class_q_widget.html" title="Główna funkcja panelu zadania bazową wszystkich obiektów interfejsu." coords="66,5,143,45"/>
+</map>

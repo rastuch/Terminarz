@@ -1,0 +1,11 @@
+<map id="dashboardtask.h" name="dashboardtask.h">
+<area shape="rect" id="node1" title=" " coords="73,5,192,31"/>
+<area shape="rect" id="node2" title=" " coords="5,79,79,104"/>
+<area shape="rect" id="node3" href="$task_8h.html" title=" " coords="103,79,162,104"/>
+<area shape="rect" id="node6" href="$mainwindow_8h.html" title=" " coords="257,79,360,104"/>
+<area shape="rect" id="node4" title=" " coords="17,152,75,177"/>
+<area shape="rect" id="node5" title=" " coords="99,152,166,177"/>
+<area shape="rect" id="node7" title=" " coords="190,152,297,177"/>
+<area shape="rect" id="node8" title=" " coords="321,152,427,177"/>
+<area shape="rect" id="node9" title=" " coords="452,152,539,177"/>
+</map>

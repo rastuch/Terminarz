@@ -1,0 +1,5 @@
+<map id="deleteTaskPopUp" name="deleteTaskPopUp">
+<area shape="rect" id="node1" title=" " coords="27,269,179,339"/>
+<area shape="rect" id="node2" href="$class_q_dialog.html" title="Główna funkcja definitywnego usunięcia zadania Relacja nadrzędna okna dialogowego." coords="5,86,77,126"/>
+<area shape="rect" id="node3" href="$class_task.html" title=" " coords="101,5,227,207"/>
+</map>

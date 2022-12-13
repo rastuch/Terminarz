@@ -1,0 +1,6 @@
+<map id="Task::setId" name="Task::setId">
+<area shape="rect" id="node1" title=" " coords="445,35,532,60"/>
+<area shape="rect" id="node2" href="$namespace_task_service.html#a97371d3642668ec400cc9d6154631a56" title="Funkcja ktora wyciaga wszystkie zadania z bazy i zwraca liste obiektow typu Task." coords="229,5,397,31"/>
+<area shape="rect" id="node3" href="$namespace_task_service.html#ac1b2f86b9ad9b1b627a5b1567099458e" title="Funkcja, która pobiera wszystkie zadania według daty ( połączona jest z bazą danych )" coords="229,55,397,95"/>
+<area shape="rect" id="node4" href="$namespace_task_service.html#ac73f566c0120c558927444d145fe203c" title="Funkcja pobierająca zadania z bazy." coords="5,55,181,95"/>
+</map>

@@ -1,0 +1,11 @@
+<map id="mainwindow.h" name="mainwindow.h">
+<area shape="rect" id="node1" title=" " coords="415,5,517,31"/>
+<area shape="rect" id="node2" href="$dashboardtask_8cpp.html" title=" " coords="172,225,304,251"/>
+<area shape="rect" id="node3" href="$dashboardtask_8h.html" title=" " coords="261,79,380,104"/>
+<area shape="rect" id="node6" href="$mainwindow_8cpp.html" title=" " coords="481,225,598,251"/>
+<area shape="rect" id="node9" href="$main_8cpp.html" title=" " coords="577,79,651,104"/>
+<area shape="rect" id="node4" href="$deletetaskpopup_8cpp.html" title=" " coords="5,225,148,251"/>
+<area shape="rect" id="node5" href="$deletetaskpopup_8h.html" title=" " coords="185,152,313,177"/>
+<area shape="rect" id="node7" href="$edittaskpopup_8h.html" title=" " coords="337,152,451,177"/>
+<area shape="rect" id="node8" href="$edittaskpopup_8cpp.html" title=" " coords="329,225,457,251"/>
+</map>

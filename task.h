@@ -4,7 +4,7 @@
 #include <QString>
 
 /*!
- * Opis klasy Task
+ * @class Opis klasy Task
   */
 
 class Task

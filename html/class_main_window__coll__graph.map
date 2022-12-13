@@ -1,0 +1,5 @@
+<map id="MainWindow" name="MainWindow">
+<area shape="rect" id="node1" title=" " coords="46,108,209,192"/>
+<area shape="rect" id="node2" title=" " coords="5,5,116,45"/>
+<area shape="rect" id="node3" href="$class_q_sql_database.html" title="Funkcja która zatwierdza edycje zadań z bazą danych." coords="140,5,251,45"/>
+</map>

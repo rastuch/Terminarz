@@ -1,0 +1,6 @@
+<map id="Task::getDate" name="Task::getDate">
+<area shape="rect" id="node1" title=" " coords="443,38,545,63"/>
+<area shape="rect" id="node2" href="$namespace_task_service.html#ac9ede2de751e30b432523be9a0df934b" title="Funkcja dodawania nowych zadań" coords="237,13,386,38"/>
+<area shape="rect" id="node4" href="$namespace_task_service.html#ab5bf202e0b7d0cd75f30c15d6ef5d0a1" title="Funkcja aktualizująca zadania z bazy." coords="228,62,395,87"/>
+<area shape="rect" id="node3" href="$namespace_task_service.html#a3028df3b1f53b86f3b12a7c7458efcde" title="Funkcja pomocnicza uzupełniająca przykładowe wpisy w bazie." coords="5,5,180,45"/>
+</map>
