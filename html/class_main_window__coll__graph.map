@@ -1,0 +1,4 @@
+<map id="MainWindow" name="MainWindow">
+<area shape="rect" id="node1" title="Klasa MainWindow to główne okno aplikacji. Klasa MainWindow dziedziczy po QMainWindow i posiada inter..." coords="5,93,168,192"/>
+<area shape="rect" id="node2" title=" " coords="31,5,142,45"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="EditTaskPopUp" name="EditTaskPopUp">
+<area shape="rect" id="node1" title="Klasa odpowiadająca za okno dialogowe edytowania zadania." coords="5,93,152,192"/>
+<area shape="rect" id="node2" title=" " coords="43,5,115,45"/>
+</map>

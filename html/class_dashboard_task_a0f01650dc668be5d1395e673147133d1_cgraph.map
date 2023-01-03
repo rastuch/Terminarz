@@ -1,0 +1,4 @@
+<map id="DashboardTask::on_edit_dashboard_clicked" name="DashboardTask::on_edit_dashboard_clicked">
+<area shape="rect" id="node1" title="Slot obsługujący kliknięcie przycisku edycji zadania z panelu." coords="5,5,168,45"/>
+<area shape="rect" id="node2" href="$class_dashboard_task.html#aec1a91b0517656301242596c6cf338d6" title="Slot obsługujący edycję zadania z panelu." coords="216,13,415,38"/>
+</map>

@@ -11,9 +11,14 @@
 // Przestrzen nazw jest tu uzywana zamiast klasy poniewaz sa tu tylko metody statyczne wiec nie mamy potrzeby tworzenia nowej instancji obiektu
 // Tutaj bedziemy wrzucac wszystkie funkcje ktore maja dostarczac informacje oraz/z bazy
 namespace TaskService {
-/*! @brief Funkcja ktora wyciaga wszystkie zadania z bazy i zwraca liste obiektow typu Task
- *  @class QSqlQuery q - Deklaracja zmiennej
- *  @return zwraca liste zadań */
+/*!
+ * @brief Pobiera wszystkie zadania z bazy danych
+ *
+ * Funkcja służy do pobierania wszystkich zadań z bazy danych. Zadania są opisane przez obiekty klasy Task i są zwracane w postaci listy.
+ *
+ * @param db Obiekt bazy danych, z której pobierane są zadania
+ * @return Lista obiektów klasy Task, opisujących pobrane zadania
+ */
 QList<Task> getAllTasks(QSqlDatabase db){ //Funkcja ktora wyciaga wszystkie zadania z bazy i zwraca liste obiektow typu Task, argumentem jest zadeklarowana baza danych
     db.open(); // Otworzenie polaczenia z bazy danych
     QSqlQuery q; // Deklaracja zmiennej typu zapytanie do DB
@@ -48,9 +53,15 @@ QList<Task> getAllTasks(QSqlDatabase db){ //Funkcja ktora wyciaga wszystkie zada
     // dlatego tak wazne jest zamykanie polaczen (zwalnianie puli polaczen) aby nasz apka byla wydajna i nie zeby nie okazalo sie ze brakuje polaczen bo nie uzyskay danych z bazy
     return taskList;
 }
-/*! @brief Funkcja, która pobiera wszystkie zadania według daty ( połączona jest z bazą danych )
- * @return Zwraca liste zadań według daty
-*/
+/*!
+ * @brief Pobiera wszystkie zadania z bazy danych, których data jest równa podanej
+ *
+ * Funkcja służy do pobierania z bazy danych wszystkich zadań, których data jest równa podanej. Zadania są opisane przez obiekty klasy Task i są zwracane w postaci listy.
+ *
+ * @param db Obiekt bazy danych, z której pobierane są zadania
+ * @param date Data, dla której pobierane są zadania
+ * @return Lista obiektów klasy Task, opisujących pobrane zadania
+ */
 
 QList<Task> getAllTasksByDate(QSqlDatabase db,QDate date){
     db.open();
@@ -84,7 +95,14 @@ QList<Task> getAllTasksByDate(QSqlDatabase db,QDate date){
       db.close();
       return taskList;
 }
-/*! @brief Funkcja dodawania nowych zadań  */
+/*!
+ * @brief Dodaje nowe zadanie do bazy danych
+ *
+ * Funkcja służy do dodawania nowego zadania do bazy danych. Zadanie jest opisane przez obiekt klasy Task.
+ *
+ * @param db Obiekt bazy danych, do której dodawane jest zadanie
+ * @param newTask Obiekt klasy Task, opisujący dodawane zadanie
+ */
 void addTask(QSqlDatabase db,Task newTask){
     db.open();
     QSqlQuery q; /** @class zapewnia sposób wykonywania instrukcji SQL */
@@ -101,7 +119,16 @@ void addTask(QSqlDatabase db,Task newTask){
     q.clear();
     db.close();
 }
-/*! @brief Funkcja usuwania zadań  */
+/*!
+ * @brief Funkcja usuwa zadanie o podanym identyfikatorze z bazy danych.
+ *
+ * Funkcja usuwa rekord o podanym identyfikatorze z tabeli TASK w bazie danych.
+ *
+ * @param db Obiekt typu QSqlDatabase, reprezentujący połączenie z bazą danych.
+ * @param taskId Identyfikator zadania do usunięcia.
+ *
+ * @return void
+ */
 void deleteTaskById(QSqlDatabase db,int taskId){
     db.open();
     QSqlQuery q;
@@ -117,9 +144,16 @@ void deleteTaskById(QSqlDatabase db,int taskId){
     q.clear();
     db.close();
 }
-/*! @brief Funkcja aktualizująca zadania z bazy
- * @class QSqlQuery - zapewnia sposób wykonywania instrukcji SQL
-*/
+/*!
+ * @brief Funkcja uaktualnia zadanie w bazie danych.
+ *
+ * Funkcja aktualizuje rekord w tabeli TASK w bazie danych, ustawiając jego pola na wartości zawarte w obiekcie updatedTask.
+ *
+ * @param db Obiekt typu QSqlDatabase, reprezentujący połączenie z bazą danych.
+ * @param updatedTask Obiekt typu Task, zawierający aktualne dane zadania.
+ *
+ * @return void
+ */
 void updateTask(QSqlDatabase db,Task updatedTask){
     db.open();
     QSqlQuery q;
@@ -143,9 +177,15 @@ void updateTask(QSqlDatabase db,Task updatedTask){
     q.clear();
     db.close();
 }
-/*! @brief Funkcja pobierająca zadania z bazy
- *  @return Zwraca liste zadań
- *  @class QDate - Klasa udostępnia funkcje daty (bieżącą date ) */
+/*!
+ * @brief Funkcja pobierająca listę zadań na nadchodzący tydzień.
+ *
+ * Funkcja pobiera listę zadań dla każdego dnia nadchodzącego tygodnia za pomocą metody `getAllTasksByDate` klasy `TaskService`
+ * i zwraca całą listę zadań w postaci jednej listy.
+ *
+ * @param db Obiekt bazy danych.
+ * @return Lista zadań na nadchodzący tydzień.
+ */
 
 QList<Task> getThisWeekTaskList(QSqlDatabase db){
      QList<Task> weekTaskList;

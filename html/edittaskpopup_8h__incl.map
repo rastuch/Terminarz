@@ -1,0 +1,13 @@
+<map id="edittaskpopup.h" name="edittaskpopup.h">
+<area shape="rect" id="node1" title=" " coords="41,5,155,31"/>
+<area shape="rect" id="node2" title=" " coords="5,79,73,104"/>
+<area shape="rect" id="node3" href="$dashboardtask_8h.html" title=" " coords="97,79,216,104"/>
+<area shape="rect" id="node4" title=" " coords="29,152,103,177"/>
+<area shape="rect" id="node5" href="$task_8h.html" title=" " coords="127,152,186,177"/>
+<area shape="rect" id="node8" href="$mainwindow_8h.html" title=" " coords="281,152,384,177"/>
+<area shape="rect" id="node6" title=" " coords="41,225,99,251"/>
+<area shape="rect" id="node7" title=" " coords="123,225,190,251"/>
+<area shape="rect" id="node9" title=" " coords="214,225,321,251"/>
+<area shape="rect" id="node10" title=" " coords="345,225,451,251"/>
+<area shape="rect" id="node11" title=" " coords="476,225,563,251"/>
+</map>

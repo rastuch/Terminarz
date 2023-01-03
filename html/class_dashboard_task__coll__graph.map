@@ -1,0 +1,5 @@
+<map id="DashboardTask" name="DashboardTask">
+<area shape="rect" id="node1" title="Klasa odpowiadająca za widget z informacjami o zadaniu na panelu użytkownika." coords="7,269,206,412"/>
+<area shape="rect" id="node2" title=" " coords="5,86,83,126"/>
+<area shape="rect" id="node3" href="$class_task.html" title="Klasa odpowiadająca za zadanie." coords="107,5,232,207"/>
+</map>

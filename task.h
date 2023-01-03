@@ -4,8 +4,12 @@
 #include <QString>
 
 /*!
- * Opis klasy Task
-  */
+ * @class Task
+ * @brief Klasa odpowiadająca za zadanie.
+ *
+ * W tej klasie zaimplementowano obiekt zadania, który zawiera pola takie jak identyfikator, tytuł, opis, data, czas i rodzaj.
+ * Zawiera także metody do ustawiania i pobierania wartości tych pól oraz konwersję formatu daty.
+ */
 
 class Task
 {
@@ -26,7 +30,7 @@ public:
     QString getDescription() {return description;} /**@return zwraca opis*/
     QString getDate() {return this->date;} /**@return zwraca date*/
     QString getTime() {return time;} /**@return zwraca czas*/
-    QString getType() {return type;} /**@return zwraca rodzaj*/
+    QString getType() {return type;} /*! @return zwraca rodzaj*/
     void setId(int id) { this->id = id; } /**@brief Konwersja formatu daty */
     void setTitle(QString title) { this->title = title; } /**@brief wartość argumentu id przypisywana jest do pola id w obiekcie */
     void setDescription(QString description) { this->description = description; }

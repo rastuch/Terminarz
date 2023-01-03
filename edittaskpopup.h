@@ -4,10 +4,14 @@
 #include <QDialog>
 #include <dashboardtask.h>
 
-
 /*!
- * @class Opis klasy edytowanego zadania
-  */
+ * @class EditTaskPopUp
+ * @brief Klasa odpowiadająca za okno dialogowe edytowania zadania.
+ *
+ * W tej klasie zaimplementowano okno dialogowe, które pojawia się, gdy użytkownik chce edytować zadanie.
+ * Zawiera ono pola tekstowe do edycji nazwy i opisu zadania, checkboxy do oznaczenia zadania jako ważnego lub
+ * spotkanie oraz przyciski do potwierdzenia lub anulowania edycji.
+ */
 
 namespace Ui {
 class EditTaskPopUp;

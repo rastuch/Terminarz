@@ -1,0 +1,5 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" title=" " coords="5,31,73,56"/>
+<area shape="rect" id="node2" href="$class_edit_task_pop_up.html" title="Klasa odpowiadająca za okno dialogowe edytowania zadania." coords="127,5,239,31"/>
+<area shape="rect" id="node3" href="$classdelete_task_pop_up.html" title="Klasa odpowiadająca za okno dialogowe usuwania zadania." coords="121,55,245,80"/>
+</map>

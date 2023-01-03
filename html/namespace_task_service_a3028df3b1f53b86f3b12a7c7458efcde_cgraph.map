@@ -1,0 +1,9 @@
+<map id="TaskService::addTasksForNextMounth" name="TaskService::addTasksForNextMounth">
+<area shape="rect" id="node1" title="Funkcja pomocnicza uzupełniająca przykładowe wpisy w bazie." coords="5,122,180,162"/>
+<area shape="rect" id="node2" href="$namespace_task_service.html#ac9ede2de751e30b432523be9a0df934b" title=" " coords="228,5,377,31"/>
+<area shape="rect" id="node3" href="$class_task.html#a901443bd36ce765d99017412cbe2e59c" title=" " coords="251,55,354,80"/>
+<area shape="rect" id="node4" href="$class_task.html#a5df0b06795350c64f6574eae34334df6" title="wartość argumentu id przypisywana jest do pola id w obiekcie" coords="232,104,373,129"/>
+<area shape="rect" id="node5" href="$class_task.html#af1523df8a9257746e10d276ab852402e" title=" " coords="251,153,355,179"/>
+<area shape="rect" id="node6" href="$class_task.html#ad459be77e9e2f0df98d65a661fb5581b" title="Konwersja formatu daty." coords="253,203,353,228"/>
+<area shape="rect" id="node7" href="$class_task.html#ace60ea49bdf021467a3500dae1a0c52a" title=" " coords="251,252,355,277"/>
+</map>

@@ -1,0 +1,10 @@
+<map id="TaskService::getThisWeekTaskList" name="TaskService::getThisWeekTaskList">
+<area shape="rect" id="node1" title="Funkcja pobierająca listę zadań na nadchodzący tydzień." coords="5,122,181,162"/>
+<area shape="rect" id="node2" href="$namespace_task_service.html#ac1b2f86b9ad9b1b627a5b1567099458e" title="Pobiera wszystkie zadania z bazy danych, których data jest równa podanej." coords="229,122,397,162"/>
+<area shape="rect" id="node3" href="$class_task.html#a901443bd36ce765d99017412cbe2e59c" title=" " coords="465,5,567,31"/>
+<area shape="rect" id="node4" href="$class_task.html#a5df0b06795350c64f6574eae34334df6" title="wartość argumentu id przypisywana jest do pola id w obiekcie" coords="445,55,587,80"/>
+<area shape="rect" id="node5" href="$class_task.html#a6c3e7a3b19e50d8fcad5a084ef6b7312" title=" " coords="473,104,559,129"/>
+<area shape="rect" id="node6" href="$class_task.html#af1523df8a9257746e10d276ab852402e" title=" " coords="464,153,568,179"/>
+<area shape="rect" id="node7" href="$class_task.html#ad459be77e9e2f0df98d65a661fb5581b" title="Konwersja formatu daty." coords="466,203,566,228"/>
+<area shape="rect" id="node8" href="$class_task.html#ace60ea49bdf021467a3500dae1a0c52a" title=" " coords="464,252,568,277"/>
+</map>

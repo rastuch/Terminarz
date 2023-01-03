@@ -1,0 +1,4 @@
+<map id="TaskService::getAllTasksByDate" name="TaskService::getAllTasksByDate">
+<area shape="rect" id="node1" title="Pobiera wszystkie zadania z bazy danych, których data jest równa podanej." coords="229,5,397,45"/>
+<area shape="rect" id="node2" href="$namespace_task_service.html#ac73f566c0120c558927444d145fe203c" title="Funkcja pobierająca listę zadań na nadchodzący tydzień." coords="5,5,181,45"/>
+</map>

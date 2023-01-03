@@ -1,0 +1,5 @@
+<map id="Task::getQDate" name="Task::getQDate">
+<area shape="rect" id="node1" title=" " coords="264,31,377,56"/>
+<area shape="rect" id="node2" href="$class_dashboard_task.html#a0fad36b8397887ea11978a9c02103cef" title="Tworzy obiekt DashboardTask i ustawia interfejs graficzny za pomocą obiektu Ui::DashboardTask." coords="5,5,216,31"/>
+<area shape="rect" id="node3" href="$class_edit_task_pop_up.html#a4ca70a87370a461bfa01540c95126190" title="Konstruuje obiekt EditTaskPopUp." coords="5,55,216,80"/>
+</map>

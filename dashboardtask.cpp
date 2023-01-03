@@ -8,19 +8,29 @@
 #include <TaskService.h>
 using namespace std;
 
-/*! @brief Funkcja przypisania zadania */
+/*!
+ * @brief Ustawienie styli dla typu zadania
+ *
+ * Funkcja ustawia styli dla zadania w zależności od jego typu. Jeżeli typem jest "MEETING",
+ * to ustawiana jest ikona reprezentująca spotkanie. Jeżeli typem jest "IMPORTANT", to ustawiana
+ * jest ikona reprezentująca ważne zadanie. W przeciwnym wypadku, typ zadania jest wyświetlany
+ * jako tekst.
+ *
+ * @param type Typ zadania, który ma zostać ustawiony
+ * @param ui Struktura interfejsu użytkownika DashboardTask
+ */
 void setTaskTypeStyle(QString type, Ui::DashboardTask ui){
     QString style = "border: 0;background-position:left center;min-width: 30px;min-height:30px;background-repeat:no-repeat";
     bool shouldSetTextType = false;
-     if(type == "MEETING"){ /** @return Przypisanie zadania jako "spotkanie" */
+     if(type == "MEETING"){
         style = "background-image: url(:/icon/account-group.png);" + style;
-    }else if(type == "IMPORTANT"){ /** @return Przypisanie zadania jako "ważne zadanie" */
+    }else if(type == "IMPORTANT"){
         style = "background-image: url(:/icon/alert-box-outline.png);" + style;
     }else{
         shouldSetTextType = true;
     };
 
-    if(shouldSetTextType == false){ /** @return przerwanie przypisywania zadania */
+    if(shouldSetTextType == false){
     ui.type_dashboard->setStyleSheet(style);
     }else{
         ui.type_dashboard->setText(type);
@@ -28,8 +38,10 @@ void setTaskTypeStyle(QString type, Ui::DashboardTask ui){
 
 }
 
-/*! @brief Główna funkcja panelu zadania
- *  @class QWidget jest klasą bazową wszystkich obiektów interfejsu
+/*!
+ * @brief Tworzy obiekt DashboardTask i ustawia interfejs graficzny za pomocą obiektu Ui::DashboardTask.
+ * @param parent Wskaźnik do rodzica obiektu.
+ * @param task Wskaźnik do obiektu zadania, które ma zostać wyświetlone w panelu.
  */
 DashboardTask::DashboardTask(QWidget *parent,Task *task) :
     QWidget(parent),
@@ -46,14 +58,25 @@ DashboardTask::DashboardTask(QWidget *parent,Task *task) :
 
 }
 
+/*!
+ * @brief Destruktor obiektu DashboardTask.
+ *
+ * Usuwa obiekt interfejsu graficznego Ui::DashboardTask.
+ */
+
 DashboardTask::~DashboardTask()
 {
     delete ui;
 }
 
 
-/*! @brief Funkcja usuwania "zadania" po kliknięciu w dashbordzie
- *  @class QObject jest klasą bazową wszystkich obiektów , connect łączy sygnał do gniazda
+/*!
+ * @brief Slot obsługujący kliknięcie przycisku usuwania zadania z panelu.
+ *
+ * Tworzy obiekt deleteTaskPopUp i łączy sygnały i sloty między nim a obiektem DashboardTask oraz
+ * głównym oknem aplikacji (MainWindow). Następnie ustawia modalność obiektu deleteTaskPopUp i wyświetla go.
+ *
+ * @sa deleteTaskPopUp
  */
 
 void DashboardTask::on_delete_dashboard_clicked()
@@ -76,15 +99,25 @@ void DashboardTask::on_delete_dashboard_clicked()
 
 }
 
-/*! @brief Funkcja usuwania zadania w popupie
- *  @class qDebug udostępnia strumień wyjściowy dla informacji debugowania
-*/
+/*!
+ * @brief Slot obsługujący usunięcie zadania z panelu.
+ *
+ * Slot wywoływany po wysłaniu sygnału emitDeleteTaskAndRefreshList. Wypisuje komunikat do konsoli za pomocą funkcji qDebug().
+ *
+ * @sa emitDeleteTaskAndRefreshList
+ */
 void DashboardTask::onTaskDeleted(){
     qDebug("nacisneto przycisk usuwania w popupie");
 }
 
-/*! @brief Funkcja edycji "zadania" po kliknięciu w panelu która przenosi nas do edycji okna zadania
-*/
+/*!
+ * @brief Slot obsługujący kliknięcie przycisku edycji zadania z panelu.
+ *
+ * Tworzy obiekt EditTaskPopUp i łączy sygnały i sloty między nim a obiektem DashboardTask.
+ * Następnie ustawia modalność obiektu EditTaskPopUp i wyświetla go.
+ *
+ * @sa EditTaskPopUp
+ */
 void DashboardTask::on_edit_dashboard_clicked()
 {
     auto editTaskPopUp1 = new EditTaskPopUp(this,&currentTask);
@@ -93,7 +126,13 @@ void DashboardTask::on_edit_dashboard_clicked()
     editTaskPopUp1->setModal(true);
     editTaskPopUp1->exec();
 }
-/*! @brief Funkcja edycji zadania w popupie */
+/*!
+ * @brief Slot obsługujący edycję zadania z panelu.
+ *
+ * Slot wywoływany po wysłaniu sygnału emitEditTask. Wypisuje komunikat do konsoli za pomocą funkcji qDebug().
+ *
+ * @sa emitEditTask
+ */
 void DashboardTask::onTaskEdited()
 {
     qDebug("nacisnieto przycisk edycji w popupie");
