@@ -4,7 +4,8 @@ Projekt przedmiotu PJC2, Terminarz z funkcja kalendarza.
 
 ## Deployment
 Projekt przygotowany przy użyciu Qt Creator.
-Budowanie za pomocą QMake & CMake
+Budowanie za pomocą QMake & CMake 
+
 Dodatkowe informacje: W celu poprawnego działania skompilowanego programu należy umieścić plik calendar.sqlite w folderze budowania aplikacji
 
 
