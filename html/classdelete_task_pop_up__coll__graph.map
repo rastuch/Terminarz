@@ -1,0 +1,5 @@
+<map id="deleteTaskPopUp" name="deleteTaskPopUp">
+<area shape="rect" id="node1" title="Klasa odpowiadająca za okno dialogowe usuwania zadania." coords="27,269,179,339"/>
+<area shape="rect" id="node2" title=" " coords="5,86,77,126"/>
+<area shape="rect" id="node3" href="$class_task.html" title="Klasa odpowiadająca za zadanie." coords="101,5,227,207"/>
+</map>

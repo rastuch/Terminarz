@@ -7,8 +7,13 @@
 
 
 /*!
- * @class Opis klasy panelu zadania
-  */
+ * @class DashboardTask
+ * @brief Klasa odpowiadająca za widget z informacjami o zadaniu na panelu użytkownika.
+ *
+ * W tej klasie zaimplementowano widget, który wyświetla informacje o zadaniu na panelu użytkownika, takie jak nazwa, opis, priorytet i datę.
+ * Zawiera on również przyciski do usuwania i edytowania zadania.
+ */
+
 
 namespace Ui {
 class DashboardTask;

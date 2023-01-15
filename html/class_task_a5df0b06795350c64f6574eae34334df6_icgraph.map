@@ -1,0 +1,7 @@
+<map id="Task::setDescription" name="Task::setDescription">
+<area shape="rect" id="node1" title="wartość argumentu id przypisywana jest do pola id w obiekcie" coords="452,70,593,95"/>
+<area shape="rect" id="node2" href="$namespace_task_service.html#a3028df3b1f53b86f3b12a7c7458efcde" title="Funkcja pomocnicza uzupełniająca przykładowe wpisy w bazie." coords="229,5,404,45"/>
+<area shape="rect" id="node3" href="$namespace_task_service.html#a97371d3642668ec400cc9d6154631a56" title="Pobiera wszystkie zadania z bazy danych." coords="233,70,401,95"/>
+<area shape="rect" id="node4" href="$namespace_task_service.html#ac1b2f86b9ad9b1b627a5b1567099458e" title="Pobiera wszystkie zadania z bazy danych, których data jest równa podanej." coords="233,120,401,160"/>
+<area shape="rect" id="node5" href="$namespace_task_service.html#ac73f566c0120c558927444d145fe203c" title="Funkcja pobierająca listę zadań na nadchodzący tydzień." coords="5,120,181,160"/>
+</map>

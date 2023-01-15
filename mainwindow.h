@@ -7,8 +7,12 @@
 
 
 /*!
- * @class Opis klasy listy inicjalizacyjnej
-  */
+ * @class MainWindow
+ * @brief Klasa odpowiadająca za główne okno programu.
+ *
+ * W tej klasie zaimplementowano główne okno programu, które zawiera kalendarz z zaznaczeniem dni z zadaniami oraz panel z informacjami o zadaniach.
+ * Zawiera także przycisk do dodawania nowych zadań.
+ */
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE

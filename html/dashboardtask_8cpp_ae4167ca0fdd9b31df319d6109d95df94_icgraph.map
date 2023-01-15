@@ -1,0 +1,4 @@
+<map id="setTaskTypeStyle" name="setTaskTypeStyle">
+<area shape="rect" id="node1" title="Ustawienie styli dla typu zadania." coords="264,5,391,31"/>
+<area shape="rect" id="node2" href="$class_dashboard_task.html#a0fad36b8397887ea11978a9c02103cef" title="Tworzy obiekt DashboardTask i ustawia interfejs graficzny za pomocą obiektu Ui::DashboardTask." coords="5,5,216,31"/>
+</map>

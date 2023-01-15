@@ -6,8 +6,13 @@
 
 
 /*!
- * @class Opis klasy usunięcia zadania
-  */
+ * @class deleteTaskPopUp
+ * @brief Klasa odpowiadająca za okno dialogowe usuwania zadania.
+ *
+ * W tej klasie zaimplementowano okno dialogowe, które pojawia się, gdy użytkownik chce usunąć zadanie.
+ * Zawiera ono dwa przyciski do potwierdzenia lub anulowania usuwania zadania.
+ */
+
 
 namespace Ui {
 class deleteTaskPopUp;

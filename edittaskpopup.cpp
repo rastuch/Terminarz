@@ -5,8 +5,12 @@
 #include <QTime>
 #include <QPlainTextEdit>
 
-/*! @brief Główna funkcja edycji zadania
- *  @class QDialog jest podstawową klasą okien dialogowych. */
+/*!
+ * @brief Konstruuje obiekt EditTaskPopUp
+ * @param parent Wskaźnik do widgetu nadrzędnego
+ * @param task Wskaźnik do obiektu zadania, które ma zostać edytowane lub dodane
+ * @param isNewTask Wartość boolowska określająca, czy zadanie jest nowe czy jest edytowane
+ */
 EditTaskPopUp::EditTaskPopUp(QWidget *parent,Task *task,bool isNewTask) :
     QDialog(parent),
     ui(new Ui::EditTaskPopUp)
@@ -42,29 +46,32 @@ EditTaskPopUp::EditTaskPopUp(QWidget *parent,Task *task,bool isNewTask) :
     }
 }
 
+/*!
+ * @brief Destruktor obiektu EditTaskPopUp
+ */
 EditTaskPopUp::~EditTaskPopUp()
 {
     delete ui;
 }
-/*! @brief Funkcja która zatwierdza edycje zadań
-* @class QSqlDatabase obsługuje połączenie z bazą danych
-*/
+/*!
+ * @brief Slot obsługi sygnału kliknięcia przycisku potwierdzenia edycji
+ */
 void EditTaskPopUp::on_confirmEditButton_clicked()
 {
     QSqlDatabase db = QSqlDatabase::database();
 
-    QString newTitle = ui->editTitle->toPlainText();    /** @brief utworzenie nowego tytułu w edycji jeżeli już wcześniej został zadeklarowany obiekt zadania */
+    QString newTitle = ui->editTitle->toPlainText();    /*! @brief utworzenie nowego tytułu w edycji jeżeli już wcześniej został zadeklarowany obiekt zadania */
     if(newTitle.length()!=0)
         currentTask.setTitle(newTitle);
 
-    QString newDescription = ui->editDescription->toPlainText(); /** @brief edycja opisu */
+    QString newDescription = ui->editDescription->toPlainText(); /*! @brief edycja opisu */
     if(newDescription.length()!=0)
         currentTask.setDescription(newDescription);
 
-    QString newTime = ui->editTime->time().toString("hh:mm"); /** @brief edycja godziny */
+    QString newTime = ui->editTime->time().toString("hh:mm"); /*! @brief edycja godziny */
     currentTask.setTime(newTime);
 
-    QString newDate = ui->edidDate->date().toString("yyyy-MM-dd"); /** @brief edycja daty */
+    QString newDate = ui->edidDate->date().toString("yyyy-MM-dd"); /*! @brief edycja daty */
     currentTask.setDate(newDate);
 
     if(addNewTaskOption == true){
@@ -76,7 +83,10 @@ void EditTaskPopUp::on_confirmEditButton_clicked()
     QDialog::reject();
 }
 
-/*! @brief Funkcja która edytuje zadania na "spotkanie" */
+/*!
+ * @brief Slot obsługi zmiany stanu pola wyboru "spotkanie"
+ * @param arg1 Stan pola wyboru
+ */
 void EditTaskPopUp::on_meetingCheckBox_stateChanged(int arg1)
 {
     if(ui->meetingCheckBox->isChecked()==true) /** @return Przypisanie zadania na "spotkanie" */
@@ -89,7 +99,10 @@ void EditTaskPopUp::on_meetingCheckBox_stateChanged(int arg1)
         ui->importantCheckBox->setChecked(true);
     }
 }
-/** @brief Funkcja która edytuje zadania na "ważne zadanie" */
+/*!
+ * @brief Slot obsługi zmiany stanu pola wyboru "ważne zadanie"
+ * @param arg1 Stan pola wyboru
+ */
 void EditTaskPopUp::on_importantCheckBox_stateChanged(int arg1)
 {
     if(ui->importantCheckBox->isChecked()==true) /** @return Przypisanie zadania na "ważne zadanie" */
@@ -102,19 +115,25 @@ void EditTaskPopUp::on_importantCheckBox_stateChanged(int arg1)
         ui->meetingCheckBox->setChecked(true);
     }
 }
-/*! @brief Funkcja w której naciśniecie przycisku "anuluj " powoduje przerwanie edytowania */
+/*!
+ * @brief Slot obsługi sygnału kliknięcia przycisku anulowania edycji
+ */
 void EditTaskPopUp::on_cancelEditButton_clicked()
 {
     QDialog::reject();
 }
 
-/*! @brief Pole do edycji tytułu */
+/*!
+ * @brief Slot obsługi zmiany tekstu w polu edycji tytułu
+ */
 void EditTaskPopUp::on_editTitle_textChanged()
 {
     if(ui->editTitle->toPlainText().length()>100)
         ui->editTitle->textCursor().deletePreviousChar();
 }
-/*! @brief Pole do edycji opisu */
+/*!
+ * @brief Slot obsługi zmiany tekstu w polu edycji opisu
+ */
 void EditTaskPopUp::on_editDescription_textChanged()
 {
     if(ui->editDescription->toPlainText().length()>200)
